@@ -1,0 +1,12 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/media/brunobonaldi/Seagate Expansion Drive1/Programming-Study/42 Sao Paulo/42projects/02-pipex/pipexp'
+tput setaf 4
+echo COMPILING LIBFT
+make bonus -C ./libft/
+cp ./libft/libft.a ./
+gcc -Wall -Wextra -Werror -g -I./libft/includes -I./libft/ -I./mandatory_srcs/includes -O3 -c pipex.c -o pipex.o
+tput setaf 2
+echo COMPILING PIPEX
+gcc -Wall -Wextra -Werror -g pipex.o libft.a -o pipex
+make: Leaving directory '/media/brunobonaldi/Seagate Expansion Drive1/Programming-Study/42 Sao Paulo/42projects/02-pipex/pipexp'
+ 
