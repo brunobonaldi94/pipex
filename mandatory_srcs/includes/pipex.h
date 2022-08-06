@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/06 01:43:23 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/06 12:00:12 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@
 # define COMMANDS_OFFSET 3
 # define MINIMUM_NUMBER_ARGS 4
 
+# define PATH "PATH=" 
+
 # define TOO_FEW_ARGUMENTS_ERROR_MSG "Pipex must be run with at least \
 'file1' 'cmd1' 'cmd2' 'file2' arguments"
 # define FILE_NOT_FOUND_ERROR_MSG "File does not exist!"
@@ -75,6 +77,7 @@ typedef struct s_arguments
 	int			argc;
 	char		**argv;
 	char		**envp;
+	char		*path;
 	t_pipes_fd	*fd_pipes;
 	pid_t		*pids_fork;
 	int			number_commands;
@@ -89,6 +92,7 @@ int		parse_args(t_arguments *arguments);
 void	load_args(int argc, char *argv[], char *envp[],
 			t_arguments *arguments);
 void	parse_cmd(t_cmd *cmd);
+void 	free_cmd(t_arguments *arguments);
 void	free_args(t_arguments *arguments);
 
 void	init_args(t_arguments *arguments);

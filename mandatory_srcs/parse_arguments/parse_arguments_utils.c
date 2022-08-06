@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:54:58 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/06 01:48:30 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/06 12:27:04 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	init_args(t_arguments *arguments)
 	arguments->input_file.file_name = NULL;
 	arguments->input_file.fd = 0;
 	arguments->output_file.file_name = NULL;
+	arguments->path = NULL;
 	arguments->output_file.fd = 0;
 }
 
@@ -50,7 +51,7 @@ void	parse_cmd(t_cmd *cmd)
 	while (cmd->cmd_to_parse[i])
 		++i;
 	cmd->argv = (char **)malloc(sizeof(char *) * i + 1);
-	cmd->cmd = cmd->cmd_to_parse[0];
+	//cmd->cmd = cmd->cmd_to_parse[0];
 	i = 0;
 	while (cmd->cmd_to_parse[i])
 	{
@@ -60,7 +61,8 @@ void	parse_cmd(t_cmd *cmd)
 	cmd->argv[i] = NULL;
 }
 
-void	free_args(t_arguments *arguments)
+
+void free_cmd(t_arguments *arguments)
 {
 	int	j;
 	int	i;
@@ -77,6 +79,14 @@ void	free_args(t_arguments *arguments)
 		}
 		free(arguments->commands[i].argv);
 		free(arguments->commands[i].cmd_to_parse);
+		free(arguments->commands[i].cmd);
 		i++;
-	}	free(arguments->commands);
+	}
+}
+
+void	free_args(t_arguments *arguments)
+{
+	free_cmd(arguments);
+	free(arguments->commands);
+	free(arguments->path);
 }

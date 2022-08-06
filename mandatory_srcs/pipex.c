@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 22:59:50 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/06 01:58:21 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/06 11:44:42 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,27 +40,29 @@ int	main(int argc, char *argv[], char *envp[])
 	}
 	open_infile(&arguments);
 	open_output(&arguments);
-	init_child_processes(&arguments);
-	int i = 0;
-	while (i < arguments.number_commands)
-	{
-		exec_command(&arguments, i);
-		i++;
-	}
-	i = 0;
-	ft_printf("%d\n",i);
-	while (i < arguments.number_commands)
-	{	
-		if (arguments.pids_fork[i] != 0)
-		{
-			wait(NULL);
-			close(arguments.fd_pipes[0].fd[READ_FD]);
-			close(arguments.fd_pipes[0].fd[WRITE_FD]);
-			close(arguments.input_file.fd);
-			close(arguments.output_file.fd);
-		}
-		i++;
-	}
+	// init_child_processes(&arguments);
+	// int i = 0;
+	// while (i < arguments.number_commands)
+	// {
+	// 	exec_command(&arguments, i);
+	// 	i++;
+	// }
+	// i = 0;
+	// ft_printf("%d\n",i);
+	// while (i < arguments.number_commands)
+	// {	
+	// 	if (arguments.pids_fork[i] != 0)
+	// 	{
+	// 		wait(NULL);
+	// 		close(arguments.fd_pipes[0].fd[READ_FD]);
+	// 		close(arguments.fd_pipes[0].fd[WRITE_FD]);
+	// 		close(arguments.input_file.fd);
+	// 		close(arguments.output_file.fd);
+	// 	}
+	// 	i++;
+	// }
+	close(arguments.input_file.fd);
+	close(arguments.output_file.fd);
 	free(arguments.pids_fork);
 	free(arguments.fd_pipes);
 	free_args(&arguments);
