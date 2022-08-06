@@ -1,9 +1,12 @@
 MANDATORY_PATH = ./mandatory_srcs
 PARSE_ARGS_PATH = parse_arguments
 ERRORS_HANDLERS_PATH = error_handlers
+EXEC_CMD_PATH = exec_cmd
 SRCS = 	$(MANDATORY_PATH)/pipex.c \
 		$(addprefix $(MANDATORY_PATH)/$(PARSE_ARGS_PATH)/,parse_arguments.c parse_arguments_utils.c) \
-		$(addprefix $(MANDATORY_PATH)/$(ERRORS_HANDLERS_PATH)/, error_handlers_utils.c)
+		$(addprefix $(MANDATORY_PATH)/$(ERRORS_HANDLERS_PATH)/, error_handlers_utils.c) \
+		$(addprefix $(MANDATORY_PATH)/$(EXEC_CMD_PATH)/, exec_cmd.c)
+
 OBJS = $(SRCS:.c=.o)
 
 NAME = pipex
