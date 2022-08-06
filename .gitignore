@@ -1,3 +1,5 @@
 *.o
 *.a
 pipex
+*.nfs*
+*.o.temp*

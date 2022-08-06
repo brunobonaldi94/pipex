@@ -1,7 +1,11 @@
-SRCS = pipex.c
+MANDATORY_PATH = ./mandatory_srcs
+PARSE_ARGS_PATH = parse_arguments
+ERRORS_HANDLERS_PATH = error_handlers
+SRCS = 	$(MANDATORY_PATH)/pipex.c \
+		$(addprefix $(MANDATORY_PATH)/$(PARSE_ARGS_PATH)/,parse_arguments.c parse_arguments_utils.c) \
+		$(addprefix $(MANDATORY_PATH)/$(ERRORS_HANDLERS_PATH)/, error_handlers_utils.c)
 OBJS = $(SRCS:.c=.o)
 
-MANDATORY_PATH = ./mandatory_srcs
 NAME = pipex
 
 SRCS_LIBFT_PATH = ./libft/
@@ -15,7 +19,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -rf
 
 %.o:	%.c
-	$(CC) $(CFLAGS) $(INCLUDES) -O3 -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 all:	$(LIBFT_FULL_PATH) $(NAME)
 
@@ -25,7 +29,7 @@ $(LIBFT_FULL_PATH):
 	make bonus -C $(SRCS_LIBFT_PATH)
 	cp $(LIBFT_FULL_PATH) ./
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) $(LIBFT_FULL_PATH)
 	@tput setaf 2
 	@echo COMPILING PIPEX
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
