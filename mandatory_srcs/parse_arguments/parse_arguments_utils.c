@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:54:58 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/06 12:27:04 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:32:45 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	init_args(t_arguments *arguments)
 	arguments->argv = NULL;
 	arguments->envp = NULL;
 	arguments->fd_pipes = NULL;
-	arguments->pids_fork = NULL;
 	arguments->number_commands = 0;
+	arguments->pids_fork = -2;
 	arguments->commands = NULL;
 	arguments->input_file.file_name = NULL;
 	arguments->input_file.fd = 0;
@@ -50,8 +50,7 @@ void	parse_cmd(t_cmd *cmd)
 	i = 0;
 	while (cmd->cmd_to_parse[i])
 		++i;
-	cmd->argv = (char **)malloc(sizeof(char *) * i + 1);
-	//cmd->cmd = cmd->cmd_to_parse[0];
+	cmd->argv = (char **)malloc(sizeof(char *) * (i + 1));
 	i = 0;
 	while (cmd->cmd_to_parse[i])
 	{

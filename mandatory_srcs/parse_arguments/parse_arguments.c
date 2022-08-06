@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:53:42 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/06 12:47:07 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/06 13:50:04 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ int	check_access_bin(t_cmd *cmd)
 	int	is_valid;
 
 	is_valid = FALSE;
-	if (access(cmd->cmd, R_OK) == 0)
+	if (access(cmd->cmd, R_OK) == SUCESS_CODE)
 		return TRUE;
 	free(cmd->cmd);
+	cmd->cmd = NULL;
 	return is_valid;
 }
 
@@ -111,9 +112,8 @@ int	parse_args(t_arguments *arguments)
 	// ft_printf("%s\n",arguments->commands[1].argv[i]);
 	// ft_printf("command 2:%s argv: %s\n", arguments->commands[1].cmd, arguments->commands[1].argv[0]);
 	// ft_printf("output_file: %s\n", arguments->output_file.file_name);
-	int i = 0;
-	while (i < arguments->number_commands)
-		ft_printf("%s\n", arguments->commands[i++].cmd);
-	
+	// int i = 0;
+	// while (i < arguments->number_commands)
+	// 	ft_printf("%s\n", arguments->commands[i++].cmd);
 	return (0);
 }

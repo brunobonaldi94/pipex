@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/06 12:00:12 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:19:56 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@
 # define PIPE_CREATION_ERROR_MSG "Error on creating pipe!"
 # define FORK_CREATION_ERROR_MSG "Error on initing fork!"
 
+
+typedef struct s_errors
+{
+	int		error_code;
+	char	*message;
+}	t_errors;
 typedef struct s_file
 {
 	int		fd;
@@ -79,8 +85,9 @@ typedef struct s_arguments
 	char		**envp;
 	char		*path;
 	t_pipes_fd	*fd_pipes;
-	pid_t		*pids_fork;
+	pid_t		pids_fork;
 	int			number_commands;
+	t_errors	errors;
 	t_cmd		*commands;
 	t_file		input_file;
 	t_file		output_file;
@@ -101,6 +108,6 @@ void	init_cmd(t_cmd *cmd);
 void	exit_with_message(int status_code, char *message);
 void	print_arg_error(char *arg, int status_code, char *message);
 //PROCESSES
-void	init_child_processes(t_arguments *arguments);
+void	init_child_process(t_arguments *arguments, int process_index);
 void	exec_command(t_arguments *arguments, int i);
 #endif
