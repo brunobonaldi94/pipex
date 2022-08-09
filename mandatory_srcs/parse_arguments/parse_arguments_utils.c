@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:54:58 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/06 15:32:45 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/08 20:33:53 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_args(t_arguments *arguments)
 	arguments->envp = NULL;
 	arguments->fd_pipes = NULL;
 	arguments->number_commands = 0;
-	arguments->pids_fork = -2;
+	arguments->pids_fork = 1;
 	arguments->commands = NULL;
 	arguments->input_file.file_name = NULL;
 	arguments->input_file.fd = 0;

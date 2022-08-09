@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/06 15:19:56 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/08 23:16:11 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 
 # define RED "\033[0;31m"
 # define BLUE "\033[0;34m"
+# define RESET "\033[0m"
 # define BLACK "\033[0;30m"
 # define GREEN "\033[0;32m"
 # define YELLOW "\033[0;33m"
@@ -50,16 +51,16 @@
 
 # define TOO_FEW_ARGUMENTS_ERROR_MSG "Pipex must be run with at least \
 'file1' 'cmd1' 'cmd2' 'file2' arguments"
-# define FILE_NOT_FOUND_ERROR_MSG "File does not exist!"
+# define FILE_NOT_FOUND_ERROR_MSG "no such file or directory!"
 # define PIPE_CREATION_ERROR_MSG "Error on creating pipe!"
 # define FORK_CREATION_ERROR_MSG "Error on initing fork!"
+# define FORK "Fork:"
 
-
-typedef struct s_errors
+typedef struct s_exit
 {
-	int		error_code;
+	int		exit_code;
 	char	*message;
-}	t_errors;
+}	t_exit;
 typedef struct s_file
 {
 	int		fd;
@@ -87,7 +88,7 @@ typedef struct s_arguments
 	t_pipes_fd	*fd_pipes;
 	pid_t		pids_fork;
 	int			number_commands;
-	t_errors	errors;
+	t_exit		exit;
 	t_cmd		*commands;
 	t_file		input_file;
 	t_file		output_file;
@@ -107,7 +108,8 @@ void	init_cmd(t_cmd *cmd);
 //ERROR_HANDLER_FUNCTIONS
 void	exit_with_message(int status_code, char *message);
 void	print_arg_error(char *arg, int status_code, char *message);
+void	perror_with_color(char *arg);
+void	close_pipes(t_arguments *arguments);
 //PROCESSES
-void	init_child_process(t_arguments *arguments, int process_index);
-void	exec_command(t_arguments *arguments, int i);
+void	exec_commands(t_arguments *arguments, int process_index);
 #endif
