@@ -2,6 +2,7 @@
 	"makefile.extensionOutputFolder": "./.vscode",
 	"files.associations": {
 		"system_error": "c",
-		"floatn.h": "c"
+		"floatn.h": "c",
+		"pipex.h": "c"
 	}
 }

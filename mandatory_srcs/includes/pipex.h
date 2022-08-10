@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/08 23:16:11 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/09 23:36:20 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <sys/types.h>
 # include <string.h>
 # include <stdio.h>
+# include <errno.h>
 
 # define TRUE 1
 # define FALSE 0
@@ -47,20 +48,21 @@
 # define COMMANDS_OFFSET 3
 # define MINIMUM_NUMBER_ARGS 4
 
-# define PATH "PATH=" 
+# define PATH "PATH="
+# define DEFAULT_PERMISSION 0000644
 
 # define TOO_FEW_ARGUMENTS_ERROR_MSG "Pipex must be run with at least \
 'file1' 'cmd1' 'cmd2' 'file2' arguments"
+# define TOO_MANY_ARGUMENTS_ERROR_MSG "Pipex must be run only with 4 args \
+'file1' 'cmd1' 'cmd2' 'file2' arguments"
+# define COMMAND_NOT_FOUND_ERROR_CODE 127
+# define COMMAND_NOT_FOUND_ERROR_MSG "command not found"
 # define FILE_NOT_FOUND_ERROR_MSG "no such file or directory!"
+# define PIPE_ARG "Pipe"
 # define PIPE_CREATION_ERROR_MSG "Error on creating pipe!"
+# define FORK_ARG "Fork"
 # define FORK_CREATION_ERROR_MSG "Error on initing fork!"
-# define FORK "Fork:"
 
-typedef struct s_exit
-{
-	int		exit_code;
-	char	*message;
-}	t_exit;
 typedef struct s_file
 {
 	int		fd;
@@ -84,11 +86,13 @@ typedef struct s_arguments
 	int			argc;
 	char		**argv;
 	char		**envp;
+	int			std_in;
+	int			std_out;
 	char		*path;
 	t_pipes_fd	*fd_pipes;
 	pid_t		pids_fork;
 	int			number_commands;
-	t_exit		exit;
+	int			exit_code;
 	t_cmd		*commands;
 	t_file		input_file;
 	t_file		output_file;
@@ -107,9 +111,20 @@ void	init_args(t_arguments *arguments);
 void	init_cmd(t_cmd *cmd);
 //ERROR_HANDLER_FUNCTIONS
 void	exit_with_message(int status_code, char *message);
-void	print_arg_error(char *arg, int status_code, char *message);
+void	print_arg_error_exit(char *arg, int status_code, char *message);
+void	print_custom_arg_error_exit(char *arg, int status_code, char *message);
 void	perror_with_color(char *arg);
+//CLOSE FDS
+void	close_read_pipe(t_arguments *arguments);
+void	close_input(t_arguments *arguments);
+void	close_output(t_arguments *arguments);
+void	close_write_pipe(t_arguments *arguments);
 void	close_pipes(t_arguments *arguments);
+void	close_input_output(t_arguments *arguments);
+void	close_all_fds(t_arguments *arguments);
 //PROCESSES
 void	exec_commands(t_arguments *arguments, int process_index);
+//FILES
+int		open_infile(t_arguments *arguments);
+int		open_output(t_arguments *arguments);
 #endif

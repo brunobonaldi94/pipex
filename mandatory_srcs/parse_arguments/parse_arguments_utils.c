@@ -6,17 +6,34 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:54:58 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/08 20:33:53 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/09 23:12:15 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	init_args(t_arguments *arguments)
+void	init_cmd(t_cmd *cmd)
+{
+	cmd->cmd_to_parse = NULL;
+	cmd->cmd = NULL;
+	cmd->argv = NULL;
+}
+
+void	init_std(t_arguments *arguments)
+{
+	arguments->std_in = STDIN_FILENO;
+	arguments->std_out = STDOUT_FILENO;
+}
+
+void	init_args_main(t_arguments *arguments)
 {
 	arguments->argc = 0;
 	arguments->argv = NULL;
 	arguments->envp = NULL;
+}
+
+void	init_pipe_args(t_arguments *arguments)
+{
 	arguments->fd_pipes = NULL;
 	arguments->number_commands = 0;
 	arguments->pids_fork = 1;
@@ -28,11 +45,11 @@ void	init_args(t_arguments *arguments)
 	arguments->output_file.fd = 0;
 }
 
-void	init_cmd(t_cmd *cmd)
+void	init_args(t_arguments *arguments)
 {
-	cmd->cmd_to_parse = NULL;
-	cmd->cmd = NULL;
-	cmd->argv = NULL;
+	init_args_main(arguments);
+	init_pipe_args(arguments);
+	arguments->exit_code = 0;
 }
 
 void	load_args(int argc, char *argv[], char *envp[], t_arguments *arguments)

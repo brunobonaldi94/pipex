@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Aug  8 20:20:34 2022
+# Make data base, printed on Tue Aug  9 22:36:36 2022
 
 # Variables
 
@@ -46,7 +46,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 PWD = /home/brunobonaldi/Desktop/pipexp
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
-# makefile (from 'Makefile', line 16)
+# makefile (from 'Makefile', line 19)
 LIBFT_FULL_PATH = $(addprefix $(SRCS_LIBFT_PATH),$(LIBFT))
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
@@ -62,7 +62,7 @@ OLDPWD = /home/brunobonaldi
 %F = $(notdir $%)
 # environment
 VSCODE_CODE_CACHE_PATH = /home/brunobonaldi/.config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
-# makefile (from 'Makefile', line 15)
+# makefile (from 'Makefile', line 18)
 LIBFT = libft.a
 # environment
 LANG = C
@@ -80,8 +80,8 @@ MAKEFLAGS = pqrR
 CURDIR := /home/brunobonaldi/Desktop/pipexp
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# makefile (from 'Makefile', line 5)
-SRCS = $(MANDATORY_PATH)/pipex.c $(addprefix $(MANDATORY_PATH)/$(PARSE_ARGS_PATH)/,parse_arguments.c parse_arguments_utils.c) $(addprefix $(MANDATORY_PATH)/$(ERRORS_HANDLERS_PATH)/, error_handlers_utils.c) $(addprefix $(MANDATORY_PATH)/$(EXEC_CMD_PATH)/, exec_cmd.c)
+# makefile (from 'Makefile', line 7)
+SRCS = $(MANDATORY_PATH)/pipex.c $(addprefix $(MANDATORY_PATH)/$(PARSE_ARGS_PATH)/,parse_arguments.c parse_arguments_utils.c) $(addprefix $(MANDATORY_PATH)/$(ERRORS_HANDLERS_PATH)/, error_handlers_utils.c) $(addprefix $(MANDATORY_PATH)/$(EXEC_CMD_PATH)/, exec_cmd.c) $(addprefix $(MANDATORY_PATH)/$(FILES_HANDLERS)/, files_handlers.c) 
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -103,18 +103,18 @@ MAKEFILE_LIST := Makefile
 # environment
 ZSH = /home/brunobonaldi/.oh-my-zsh
 # environment
-VSCODE_PID = 6991
+VSCODE_PID = 7420
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'Makefile', line 18)
+# makefile (from 'Makefile', line 21)
 INCLUDES = -I$(SRCS_LIBFT_PATH)includes -I$(SRCS_LIBFT_PATH) -I$(addprefix $(MANDATORY_PATH)/, includes)
 # environment
-SESSION_MANAGER = local/brunobonaldi:@/tmp/.ICE-unix/3266,unix/brunobonaldi:/tmp/.ICE-unix/3266
+SESSION_MANAGER = local/brunobonaldi:@/tmp/.ICE-unix/3248,unix/brunobonaldi:/tmp/.ICE-unix/3248
 # automatic
 *F = $(notdir $*)
-# makefile (from 'Makefile', line 14)
+# makefile (from 'Makefile', line 17)
 SRCS_LIBFT_PATH = ./libft/
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
@@ -126,7 +126,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1001/bus
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
-# makefile (from 'Makefile', line 10)
+# makefile (from 'Makefile', line 13)
 OBJS = $(SRCS:.c=.o)
 # environment
 GNOME_DESKTOP_SESSION_ID = this-is-deprecated
@@ -159,14 +159,14 @@ LC_MONETARY = pt_BR.UTF-8
 # environment
 LC_TIME = pt_BR.UTF-8
 # environment
-INVOCATION_ID = cf2a7bd00ee14a6db7c6d99ec852a8ca
+INVOCATION_ID = 8abcb724f4794ace9c05096d74aa0a83
 # environment
 USERNAME = brunobonaldi
 # environment
 LC_TELEPHONE = pt_BR.UTF-8
 # automatic
 ?F = $(notdir $?)
-# makefile (from 'Makefile', line 12)
+# makefile (from 'Makefile', line 15)
 NAME = pipex
 # environment
 XDG_CURRENT_DESKTOP = Unity
@@ -186,11 +186,13 @@ GNUMAKEFLAGS :=
 LOGNAME = brunobonaldi
 # environment
 GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
+# makefile (from 'Makefile', line 5)
+FILES_HANDLERS = files_handlers
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 3285
-# makefile (from 'Makefile', line 22)
+SYSTEMD_EXEC_PID = 3267
+# makefile (from 'Makefile', line 25)
 RM = rm -rf
 # environment
 DISPLAY = :1
@@ -201,13 +203,13 @@ GTK_MODULES = gail:atk-bridge
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 3008
+MANAGERPID = 2991
 # environment
 DESKTOP_MODE = 1
 # environment
 LC_MEASUREMENT = pt_BR.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 6991
+GIO_LAUNCHED_DESKTOP_FILE_PID = 7420
 # environment
 PAGER = less
 # environment
@@ -216,14 +218,14 @@ _ = /usr/share/code/code
 LC_PAPER = pt_BR.UTF-8
 # environment
 XDG_RUNTIME_DIR = /run/user/1001
-# makefile (from 'Makefile', line 21)
+# makefile (from 'Makefile', line 24)
 CFLAGS = -Wall -Wextra -Werror -g
 # environment
 GPG_AGENT_INFO = /run/user/1001/gnupg/S.gpg-agent:0:1
 # environment
 LC_CTYPE = pt_BR.UTF-8
 # environment
-JOURNAL_STREAM = 8:40961
+JOURNAL_STREAM = 8:36730
 # makefile (from 'Makefile', line 4)
 EXEC_CMD_PATH = exec_cmd
 # environment
@@ -250,7 +252,7 @@ IM_CONFIG_PHASE = 1
 SUFFIXES := 
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
-# makefile (from 'Makefile', line 20)
+# makefile (from 'Makefile', line 23)
 CC = gcc
 # environment
 XDG_MENU_PREFIX = gnome-
@@ -259,7 +261,7 @@ GDMSESSION = ubuntu
 # environment
 LC_IDENTIFICATION = pt_BR.UTF-8
 # variable set hash-table stats:
-# Load=124/1024=12%, Rehash=0, Collisions=6/174=3%
+# Load=125/1024=12%, Rehash=0, Collisions=6/186=3%
 
 # Pattern-specific Variable Values
 
@@ -267,115 +269,102 @@ LC_IDENTIFICATION = pt_BR.UTF-8
 
 # Directories
 
-# . (device 66307, inode 3288579): 14 files, no impossibilities.
-# mandatory_srcs/error_handlers (device 66307, inode 3288780): 2 files, no impossibilities so far.
-# mandatory_srcs (device 66307, inode 3288779): 7 files, no impossibilities so far.
-# mandatory_srcs/exec_cmd (device 66307, inode 3288575): 3 files, no impossibilities so far.
-# mandatory_srcs/parse_arguments (device 66307, inode 3288784): 3 files, no impossibilities so far.
+# . (device 66307, inode 3288579): 13 files, no impossibilities.
+# mandatory_srcs (device 66307, inode 3288779): 8 files, no impossibilities so far.
 
-# 29 files, no impossibilities in 5 directories.
+# 21 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 %.o: %.c
-#  recipe to execute (from 'Makefile', line 25):
+#  recipe to execute (from 'Makefile', line 28):
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
- 
 # 1 implicit rules, 0 (0.0%) terminal.
 # Files
 
 # Not a target:
-mandatory_srcs/error_handlers/error_handlers_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-05 23:15:03.352707814
-#  File has been updated.
-#  Successfully updated.
+mandatory_srcs/exec_cmd/exec_cmd.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-# Not a target:
-mandatory_srcs/exec_cmd/exec_cmd.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-06 15:39:18.880181549
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-mandatory_srcs/parse_arguments/parse_arguments_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-06 15:32:45.512184187
-#  File has been updated.
-#  Successfully updated.
-
-mandatory_srcs/exec_cmd/exec_cmd.o: mandatory_srcs/exec_cmd/exec_cmd.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/exec_cmd/exec_cmd'
-#  Last modified 2022-08-06 15:43:52.440179715
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 25):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
+ 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-06 00:18:46.540911994
+#  Last modified 2022-08-09 22:36:31.915383917
 #  File has been updated.
 #  Successfully updated.
 
 mandatory_srcs/pipex.o: mandatory_srcs/pipex.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'mandatory_srcs/pipex'
-#  Last modified 2022-08-06 15:43:52.280179716
+#  Last modified 2022-08-09 22:34:32.647381132
 #  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 25):
+#  Needs to be updated (-q is set).
+# automatic
+# @ := mandatory_srcs/pipex.o
+# automatic
+# * := mandatory_srcs/pipex
+# automatic
+# < := mandatory_srcs/pipex.c
+# automatic
+# + := mandatory_srcs/pipex.c
+# automatic
+# % := 
+# automatic
+# ^ := mandatory_srcs/pipex.c
+# automatic
+# ? := mandatory_srcs/pipex.c
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/19=11%
+#  recipe to execute (from 'Makefile', line 28):
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-pipex: mandatory_srcs/pipex.o mandatory_srcs/parse_arguments/parse_arguments.o mandatory_srcs/parse_arguments/parse_arguments_utils.o mandatory_srcs/error_handlers/error_handlers_utils.o mandatory_srcs/exec_cmd/exec_cmd.o libft/libft.a
+pipex: mandatory_srcs/pipex.o mandatory_srcs/parse_arguments/parse_arguments.o mandatory_srcs/parse_arguments/parse_arguments_utils.o mandatory_srcs/error_handlers/error_handlers_utils.o mandatory_srcs/exec_cmd/exec_cmd.o mandatory_srcs/files_handlers/files_handlers.o libft/libft.a
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-06 15:43:52.480179714
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 36):
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/9=0%
+#  recipe to execute (from 'Makefile', line 39):
 	@tput setaf 2
 	@echo COMPILING PIPEX
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-mandatory_srcs/parse_arguments/parse_arguments_utils.o: mandatory_srcs/parse_arguments/parse_arguments_utils.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/parse_arguments/parse_arguments_utils'
-#  Last modified 2022-08-06 15:43:52.372179715
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 25):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+# Not a target:
+mandatory_srcs/parse_arguments/parse_arguments_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 libft/libft.a:
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-06 15:43:52.228179716
+#  Last modified 2022-08-09 22:34:32.603381131
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 30):
+#  recipe to execute (from 'Makefile', line 33):
 	@tput setaf 4
 	@echo COMPILING LIBFT
 	make bonus -C $(SRCS_LIBFT_PATH)
 	cp $(LIBFT_FULL_PATH) ./
 
-mandatory_srcs/error_handlers/error_handlers_utils.o: mandatory_srcs/error_handlers/error_handlers_utils.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/error_handlers/error_handlers_utils'
-#  Last modified 2022-08-06 15:43:52.408179715
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 25):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+# Not a target:
+mandatory_srcs/error_handlers/error_handlers_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 clean:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 44):
 	make clean -C $(SRCS_LIBFT_PATH)
 	$(RM) $(OBJS) $(OBJS_BONUS)
 
@@ -388,18 +377,15 @@ re: fclean all
 # Not a target:
 mandatory_srcs/pipex.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-06 15:43:48.364179742
+#  Last modified 2022-08-09 22:35:19.511382227
 #  File has been updated.
 #  Successfully updated.
 
-mandatory_srcs/parse_arguments/parse_arguments.o: mandatory_srcs/parse_arguments/parse_arguments.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/parse_arguments/parse_arguments'
-#  Last modified 2022-08-06 15:43:52.328179715
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 25):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+# Not a target:
+mandatory_srcs/parse_arguments/parse_arguments.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -413,23 +399,24 @@ all: libft/libft.a pipex
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/9=0%
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 45):
+#  recipe to execute (from 'Makefile', line 48):
 	make fclean -C $(SRCS_LIBFT_PATH)
 	$(RM) $(NAME) $(NAME_BONUS) $(LIBFT)
 
 # Not a target:
-mandatory_srcs/parse_arguments/parse_arguments.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-06 13:50:04.812225497
-#  File has been updated.
-#  Successfully updated.
+mandatory_srcs/files_handlers/files_handlers.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 .PHONY: all clean fclean re
 #  Implicit rule search has not been done.
@@ -437,19 +424,19 @@ mandatory_srcs/parse_arguments/parse_arguments.c:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=20/1024=2%, Rehash=0, Collisions=0/63=0%
+# Load=17/1024=2%, Rehash=0, Collisions=0/49=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 53 / storage = 1057 B / avg = 19 B
-# current buf: size = 8162 B / used = 1057 B / count = 53 / avg = 19 B
+# strcache buffers: 1 (0) / strings = 40 / storage = 582 B / avg = 14 B
+# current buf: size = 8162 B / used = 582 B / count = 40 / avg = 14 B
 
-# strcache performance: lookups = 88 / hit rate = 39%
+# strcache performance: lookups = 66 / hit rate = 39%
 # hash-table stats:
-# Load=53/8192=1%, Rehash=0, Collisions=0/88=0%
-# Finished Make data base on Mon Aug  8 20:20:34 2022
+# Load=40/8192=0%, Rehash=0, Collisions=0/66=0%
+# Finished Make data base on Tue Aug  9 22:36:36 2022
 
  
