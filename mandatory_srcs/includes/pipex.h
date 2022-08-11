@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/09 23:36:20 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/10 22:42:28 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,13 +106,15 @@ void	load_args(int argc, char *argv[], char *envp[],
 void	parse_cmd(t_cmd *cmd);
 void 	free_cmd(t_arguments *arguments);
 void	free_args(t_arguments *arguments);
-
 void	init_args(t_arguments *arguments);
 void	init_cmd(t_cmd *cmd);
+char	**tokenizer(t_arguments *arguments, int *argv_index);
 //ERROR_HANDLER_FUNCTIONS
 void	exit_with_message(int status_code, char *message);
-void	print_arg_error_exit(char *arg, int status_code, char *message);
-void	print_custom_arg_error_exit(char *arg, int status_code, char *message);
+void	print_arg_error_and_exit(t_arguments *arguments, char *arg,
+			int status_code, char *message);
+void	print_custom_arg_error_and_exit(t_arguments *arguments, char *arg,
+			 int status_code, char *message);
 void	perror_with_color(char *arg);
 //CLOSE FDS
 void	close_read_pipe(t_arguments *arguments);
@@ -127,4 +129,6 @@ void	exec_commands(t_arguments *arguments, int process_index);
 //FILES
 int		open_infile(t_arguments *arguments);
 int		open_output(t_arguments *arguments);
+//FREE
+void	free_pipex(t_arguments *arguments);
 #endif

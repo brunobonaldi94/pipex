@@ -1,10 +1,9 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/brunobonaldi/Desktop/pipexp'
-gcc -Wall -Wextra -Werror -g -I./libft/includes -I./libft/ -I./mandatory_srcs/includes -c mandatory_srcs/pipex.c -o mandatory_srcs/pipex.o
-gcc -Wall -Wextra -Werror -g -I./libft/includes -I./libft/ -I./mandatory_srcs/includes -c mandatory_srcs/exec_cmd/exec_cmd.c -o mandatory_srcs/exec_cmd/exec_cmd.o
-gcc -Wall -Wextra -Werror -g -I./libft/includes -I./libft/ -I./mandatory_srcs/includes -c mandatory_srcs/files_handlers/files_handlers.c -o mandatory_srcs/files_handlers/files_handlers.o
+gcc -Wall -Wextra -Werror -g -I./libft/includes -I./libft/ -I./mandatory_srcs/includes -c mandatory_srcs/parse_arguments/parse_arguments.c -o mandatory_srcs/parse_arguments/parse_arguments.o
+gcc -Wall -Wextra -Werror -g -I./libft/includes -I./libft/ -I./mandatory_srcs/includes -c mandatory_srcs/parse_arguments/tokenizer.c -o mandatory_srcs/parse_arguments/tokenizer.o
 tput setaf 2
 echo COMPILING PIPEX
-gcc -Wall -Wextra -Werror -g ./mandatory_srcs/pipex.o ./mandatory_srcs/parse_arguments/parse_arguments.o ./mandatory_srcs/parse_arguments/parse_arguments_utils.o ./mandatory_srcs/error_handlers/error_handlers_utils.o ./mandatory_srcs/exec_cmd/exec_cmd.o ./mandatory_srcs/files_handlers/files_handlers.o libft.a -o pipex
+gcc -Wall -Wextra -Werror -g ./mandatory_srcs/pipex.o ./mandatory_srcs/parse_arguments/parse_arguments.o ./mandatory_srcs/parse_arguments/parse_arguments_utils.o ./mandatory_srcs/parse_arguments/init_arguments.o ./mandatory_srcs/parse_arguments/tokenizer.o ./mandatory_srcs/error_handlers/error_handlers_utils.o ./mandatory_srcs/error_handlers/close_fds.o ./mandatory_srcs/error_handlers/close_fds_II.o ./mandatory_srcs/exec_cmd/exec_cmd.o ./mandatory_srcs/files_handlers/files_handlers.o libft.a -o pipex
 make: Leaving directory '/home/brunobonaldi/Desktop/pipexp'
  

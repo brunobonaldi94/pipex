@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:35:22 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/09 23:35:51 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/10 22:24:43 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ void	exec_each_cmd(t_arguments *arguments, int process_index)
 	if (arguments->commands[process_index].cmd == NULL)
 	{
 		restore_stdin_out(arguments);
-		print_custom_arg_error_exit(arguments->commands[process_index].argv[0],
-			COMMAND_NOT_FOUND_ERROR_CODE, COMMAND_NOT_FOUND_ERROR_MSG);
+		print_custom_arg_error_and_exit(arguments,
+			arguments->commands[process_index].argv[0],
+			COMMAND_NOT_FOUND_ERROR_CODE,
+			COMMAND_NOT_FOUND_ERROR_MSG);
 	}
 	err = execve(arguments->commands[process_index].cmd,
 	 	arguments->commands[process_index].argv, arguments->envp);

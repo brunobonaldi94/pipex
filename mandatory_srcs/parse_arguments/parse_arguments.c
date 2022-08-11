@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:53:42 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/06 13:50:04 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/10 22:43:29 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ void	parse_commands(t_arguments *arguments)
 	while (i < arguments->argc - 1)
 	{
 		init_cmd(&arguments->commands[j]);
-		arguments->commands[j].cmd_to_parse =
-			ft_split(arguments->argv[i++], ' ');
+		arguments->commands[j].cmd_to_parse = tokenizer(arguments, &i);
 		parse_command_bin(arguments, j);
 		parse_cmd(&arguments->commands[j++]);
 	}
@@ -93,27 +92,5 @@ int	parse_args(t_arguments *arguments)
 	arguments->output_file.file_name = arguments->argv[arguments->argc - 1];
 	parse_path(arguments);
 	parse_commands(arguments);
-	//parse_command_bin(arguments);
-	// ft_printf("input_file: %s\n", arguments->input_file.file_name);
-	// int i=0;
-	// while (arguments->commands[0].argv[i])
-	// {
-	// 	ft_printf("%s\n",arguments->commands[0].argv[i]);
-	// 	i++;
-	// }
-	// ft_printf("%s\n",arguments->commands[0].argv[i]);
-	// ft_printf("command 1:%s argv: %s\n", arguments->commands[0].cmd,  arguments->commands[0].argv[0]);
-	// i=0;
-	// while (arguments->commands[0].argv[i])
-	// {
-	// 	ft_printf("%s\n",arguments->commands[1].argv[i]);
-	// 	i++;
-	// }
-	// ft_printf("%s\n",arguments->commands[1].argv[i]);
-	// ft_printf("command 2:%s argv: %s\n", arguments->commands[1].cmd, arguments->commands[1].argv[0]);
-	// ft_printf("output_file: %s\n", arguments->output_file.file_name);
-	// int i = 0;
-	// while (i < arguments->number_commands)
-	// 	ft_printf("%s\n", arguments->commands[i++].cmd);
 	return (0);
 }

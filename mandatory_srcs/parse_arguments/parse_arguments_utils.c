@@ -6,51 +6,11 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:54:58 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/09 23:12:15 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/10 22:38:52 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-void	init_cmd(t_cmd *cmd)
-{
-	cmd->cmd_to_parse = NULL;
-	cmd->cmd = NULL;
-	cmd->argv = NULL;
-}
-
-void	init_std(t_arguments *arguments)
-{
-	arguments->std_in = STDIN_FILENO;
-	arguments->std_out = STDOUT_FILENO;
-}
-
-void	init_args_main(t_arguments *arguments)
-{
-	arguments->argc = 0;
-	arguments->argv = NULL;
-	arguments->envp = NULL;
-}
-
-void	init_pipe_args(t_arguments *arguments)
-{
-	arguments->fd_pipes = NULL;
-	arguments->number_commands = 0;
-	arguments->pids_fork = 1;
-	arguments->commands = NULL;
-	arguments->input_file.file_name = NULL;
-	arguments->input_file.fd = 0;
-	arguments->output_file.file_name = NULL;
-	arguments->path = NULL;
-	arguments->output_file.fd = 0;
-}
-
-void	init_args(t_arguments *arguments)
-{
-	init_args_main(arguments);
-	init_pipe_args(arguments);
-	arguments->exit_code = 0;
-}
 
 void	load_args(int argc, char *argv[], char *envp[], t_arguments *arguments)
 {
@@ -62,19 +22,19 @@ void	load_args(int argc, char *argv[], char *envp[], t_arguments *arguments)
 
 void	parse_cmd(t_cmd *cmd)
 {
-	int	i;
+	int	cmd_index;
 	
-	i = 0;
-	while (cmd->cmd_to_parse[i])
-		++i;
-	cmd->argv = (char **)malloc(sizeof(char *) * (i + 1));
-	i = 0;
-	while (cmd->cmd_to_parse[i])
+	cmd_index = 0;
+	while (cmd->cmd_to_parse[cmd_index])
+		++cmd_index;
+	cmd->argv = (char **)malloc(sizeof(char *) * (cmd_index + 1));
+	cmd_index = 0;
+	while (cmd->cmd_to_parse[cmd_index])
 	{
-		cmd->argv[i] = cmd->cmd_to_parse[i];
-		i++;
+		cmd->argv[cmd_index] = cmd->cmd_to_parse[cmd_index];
+		cmd_index++;
 	}
-	cmd->argv[i] = NULL;
+	cmd->argv[cmd_index] = NULL;
 }
 
 
