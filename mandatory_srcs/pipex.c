@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 22:59:50 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/13 18:47:05 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/13 18:48:57 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,8 @@ int	main(int argc, char *argv[], char *envp[])
 	arguments.fd_pipes = (t_pipes_fd *)malloc(sizeof(t_pipes_fd)
 			* arguments.number_commands - 1);
 	if (pipe(arguments.fd_pipes[0].fd) == ERROR_CODE_FUNCTION)
-	{
-		free_pipex(&arguments);
 		print_arg_error_and_exit(&arguments, PIPE_ARG, EXIT_FAILURE,
 			PIPE_CREATION_ERROR_MSG);
-	}
 	fork_childs(&arguments);
 	close_pipes(&arguments);
 	free_pipex(&arguments);
