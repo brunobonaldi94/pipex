@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:35:22 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/10 22:24:43 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/13 18:20:00 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	restore_stdin_out(t_arguments *arguments)
 
 void	exec_each_cmd(t_arguments *arguments, int process_index)
 {
-	int err;
+	int	err;
 
 	if (arguments->commands[process_index].cmd == NULL)
 	{
@@ -39,11 +39,12 @@ void	exec_each_cmd(t_arguments *arguments, int process_index)
 			COMMAND_NOT_FOUND_ERROR_MSG);
 	}
 	err = execve(arguments->commands[process_index].cmd,
-	 	arguments->commands[process_index].argv, arguments->envp);
-	if (err == ERROR_CODE_FUNCTION) 
+			arguments->commands[process_index].argv, arguments->envp);
+	if (err == ERROR_CODE_FUNCTION)
 	{
 		restore_stdin_out(arguments);
-		perror_with_color(arguments->commands[process_index].argv[0]);
+		perror_with_color(arguments,
+			arguments->commands[process_index].argv[0]);
 		exit(errno);
 	}
 }
@@ -60,7 +61,7 @@ void	exec_commands(t_arguments *arguments, int process_index)
 		dup2(arguments->fd_pipes[0].fd[WRITE_FD], STDOUT_FILENO);
 		close_write_pipe(arguments);
 	}
-	else 
+	else
 	{
 		close_write_pipe(arguments);
 		dup2(arguments->fd_pipes[0].fd[READ_FD], STDIN_FILENO);

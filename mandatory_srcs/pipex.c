@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 22:59:50 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/10 22:24:14 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/13 18:47:05 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	get_exit_code(t_arguments *arguments)
 {
 	int	i;
-	
+
 	arguments->exit_code = 0;
 	i = 0;
-	while (i < arguments->number_commands) 
+	while (i < arguments->number_commands)
 	{
 		waitpid(arguments->pids_fork, &arguments->exit_code, 0);
 		if (WIFEXITED(arguments->exit_code))
@@ -41,18 +41,12 @@ void	fork_childs(t_arguments *arguments)
 		if (arguments->pids_fork != 0)
 			arguments->pids_fork = fork();
 		if (arguments->pids_fork == -1)
-			print_arg_error_and_exit(arguments,FORK_ARG, EXIT_FAILURE,
+			print_arg_error_and_exit(arguments, FORK_ARG, EXIT_FAILURE,
 				FORK_CREATION_ERROR_MSG);
 		if (arguments->pids_fork == 0)
 			exec_commands(arguments, i);
 		i++;
 	}
-}
-
-void	free_pipex(t_arguments *arguments)
-{
-	free(arguments->fd_pipes);
-	free_args(arguments);
 }
 
 int	main(int argc, char *argv[], char *envp[])
@@ -61,10 +55,11 @@ int	main(int argc, char *argv[], char *envp[])
 
 	load_args(argc, argv, envp, &arguments);
 	parse_args(&arguments);
-	arguments.fd_pipes = (t_pipes_fd *)malloc(sizeof(t_pipes_fd) * 1);
-	if (pipe(arguments.fd_pipes[0].fd) == -1) 
+	arguments.fd_pipes = (t_pipes_fd *)malloc(sizeof(t_pipes_fd)
+			* arguments.number_commands - 1);
+	if (pipe(arguments.fd_pipes[0].fd) == ERROR_CODE_FUNCTION)
 	{
-	 	free_pipex(&arguments);
+		free_pipex(&arguments);
 		print_arg_error_and_exit(&arguments, PIPE_ARG, EXIT_FAILURE,
 			PIPE_CREATION_ERROR_MSG);
 	}

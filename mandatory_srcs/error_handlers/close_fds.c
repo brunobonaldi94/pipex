@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:16:21 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/10 22:18:51 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/13 13:48:45 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	close_pipes(t_arguments *arguments)
 	close_read_pipe(arguments);
 	close_write_pipe(arguments);
 }
-
 
 void	close_input_output(t_arguments *arguments)
 {

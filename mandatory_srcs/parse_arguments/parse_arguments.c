@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:53:42 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/10 22:43:29 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/13 18:47:32 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	check_access_bin(t_cmd *cmd)
 
 	is_valid = FALSE;
 	if (access(cmd->cmd, R_OK) == SUCESS_CODE)
-		return TRUE;
+		return (TRUE);
 	free(cmd->cmd);
 	cmd->cmd = NULL;
-	return is_valid;
+	return (is_valid);
 }
 
 int	parse_command_bin(t_arguments *arguments, int index)
@@ -31,16 +31,16 @@ int	parse_command_bin(t_arguments *arguments, int index)
 	int		i;
 	int		is_valid_bin;
 
-	path_split = ft_split(arguments->path, ':');
+	path_split = ft_split(arguments->path, COMMA_CHAR);
 	i = 0;
 	is_valid_bin = FALSE;
 	while (path_split[i])
 	{
-		path_with_slash = ft_strjoin(path_split[i],"/");
+		path_with_slash = ft_strjoin(path_split[i], SLASH_STRING);
 		if (is_valid_bin == FALSE)
 		{
 			arguments->commands[index].cmd = ft_strjoin(path_with_slash,
-				arguments->commands[index].cmd_to_parse[0]);
+					arguments->commands[index].cmd_to_parse[0]);
 			is_valid_bin = check_access_bin(&arguments->commands[index]);
 		}
 		free(path_with_slash);
@@ -56,30 +56,37 @@ void	parse_commands(t_arguments *arguments)
 	int	i;
 	int	j;
 
-	arguments->number_commands = arguments->argc 
+	arguments->number_commands = arguments->argc
 		- COMMANDS_OFFSET;
-	arguments->commands = (t_cmd *)malloc(sizeof(t_cmd) *
-		arguments->number_commands);
+	arguments->commands = (t_cmd *)malloc(sizeof(t_cmd)
+			* arguments->number_commands);
 	i = INDEX_COMMANDS_START;
 	j = 0;
 	while (i < arguments->argc - 1)
 	{
 		init_cmd(&arguments->commands[j]);
-		arguments->commands[j].cmd_to_parse = tokenizer(arguments, &i);
+		arguments->commands[j].cmd_to_parse = tokenizer(arguments, i);
 		parse_command_bin(arguments, j);
-		parse_cmd(&arguments->commands[j++]);
+		parse_cmd(&arguments->commands[j]);
+		i++;
+		j++;
 	}
 }
 
 void	parse_path(t_arguments *arguments)
 {
-	int	i;
+	int		i;
+	size_t	path_len;
 
 	i = 0;
+	path_len = ft_strlen(PATH);
 	while (arguments->envp[i])
 	{
-		if (ft_strnstr(arguments->envp[i], PATH, 5))
+		if (ft_strnstr(arguments->envp[i], PATH, path_len))
+		{
+			arguments->envp[i] = arguments->envp[i] + path_len;
 			arguments->path = ft_strdup(arguments->envp[i]);
+		}
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/10 22:42:28 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/13 18:23:49 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,13 @@
 # define PATH "PATH="
 # define DEFAULT_PERMISSION 0000644
 
+# define SPACE_CHAR ' '
+# define SINGLE_QUOTE_CHAR '\''
+# define DOUBLE_QUOTE_CHAR '"'
+# define COMMA_CHAR ':' 
+# define SLASH_STRING "/"
+# define SENTINEL_CHAR -28
+
 # define TOO_FEW_ARGUMENTS_ERROR_MSG "Pipex must be run with at least \
 'file1' 'cmd1' 'cmd2' 'file2' arguments"
 # define TOO_MANY_ARGUMENTS_ERROR_MSG "Pipex must be run only with 4 args \
@@ -62,6 +69,12 @@
 # define PIPE_CREATION_ERROR_MSG "Error on creating pipe!"
 # define FORK_ARG "Fork"
 # define FORK_CREATION_ERROR_MSG "Error on initing fork!"
+# define PERMISSION_DENIED_ERROR_CODE 126
+# define PERMISSION_DENIED_ERROR_MSG "Permission denied"
+
+# define FILE_DOES_NOT_EXIST -1
+# define PERMISSION_NOT_ALLOWED 1
+# define PERMISSION_OK 0
 
 typedef struct s_file
 {
@@ -104,18 +117,17 @@ int		parse_args(t_arguments *arguments);
 void	load_args(int argc, char *argv[], char *envp[],
 			t_arguments *arguments);
 void	parse_cmd(t_cmd *cmd);
-void 	free_cmd(t_arguments *arguments);
-void	free_args(t_arguments *arguments);
 void	init_args(t_arguments *arguments);
 void	init_cmd(t_cmd *cmd);
-char	**tokenizer(t_arguments *arguments, int *argv_index);
+char	**tokenizer(t_arguments *arguments, int argv_index);
 //ERROR_HANDLER_FUNCTIONS
 void	exit_with_message(int status_code, char *message);
 void	print_arg_error_and_exit(t_arguments *arguments, char *arg,
 			int status_code, char *message);
 void	print_custom_arg_error_and_exit(t_arguments *arguments, char *arg,
-			 int status_code, char *message);
-void	perror_with_color(char *arg);
+			int status_code, char *message);
+void	perror_with_color(t_arguments *arguments, char *arg);
+void	perror_and_exit(t_arguments *arguments, char *arg, int status_code);
 //CLOSE FDS
 void	close_read_pipe(t_arguments *arguments);
 void	close_input(t_arguments *arguments);
@@ -130,5 +142,7 @@ void	exec_commands(t_arguments *arguments, int process_index);
 int		open_infile(t_arguments *arguments);
 int		open_output(t_arguments *arguments);
 //FREE
+void	free_cmd(t_arguments *arguments);
+void	free_args(t_arguments *arguments);
 void	free_pipex(t_arguments *arguments);
 #endif

@@ -3,6 +3,7 @@
 	"files.associations": {
 		"system_error": "c",
 		"floatn.h": "c",
-		"pipex.h": "c"
+		"pipex.h": "c",
+		"libft.h": "c"
 	}
 }

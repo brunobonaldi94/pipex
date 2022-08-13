@@ -9,7 +9,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/pipex",
-			"args": ["infile", "grep pipex", "tr x ' '", "outfile"],
+			"args": ["infile", "grep x", "awk '{print $2 \"\t\" $3}'", "outfile7"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [],

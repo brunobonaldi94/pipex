@@ -3,5 +3,5 @@
 pipex
 *.nfs*
 *.o.temp*
-/pipex-tester
+/testers
 outfile*
