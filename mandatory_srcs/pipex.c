@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 22:59:50 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/13 18:48:57 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/14 13:06:21 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,32 @@ void	fork_childs(t_arguments *arguments)
 	}
 }
 
+void	create_pipes(t_arguments *arguments)
+{
+	int	pipe_index;
+
+	pipe_index = 0;
+	arguments->fd_pipes = (t_pipes_fd *)malloc(sizeof(t_pipes_fd)
+			* arguments->number_commands - 1);
+	while (pipe_index < arguments->number_commands - 1)
+	{
+		if (pipe(arguments->fd_pipes[pipe_index].fd) == ERROR_CODE_FUNCTION)
+		{
+			close_pipes(arguments);
+			print_arg_error_and_exit(arguments, PIPE_ARG, EXIT_FAILURE,
+				PIPE_CREATION_ERROR_MSG);
+		}
+		pipe_index++;
+	}
+}
+
 int	main(int argc, char *argv[], char *envp[])
 {
 	t_arguments	arguments;
 
 	load_args(argc, argv, envp, &arguments);
 	parse_args(&arguments);
-	arguments.fd_pipes = (t_pipes_fd *)malloc(sizeof(t_pipes_fd)
-			* arguments.number_commands - 1);
-	if (pipe(arguments.fd_pipes[0].fd) == ERROR_CODE_FUNCTION)
-		print_arg_error_and_exit(&arguments, PIPE_ARG, EXIT_FAILURE,
-			PIPE_CREATION_ERROR_MSG);
+	create_pipes(&arguments);
 	fork_childs(&arguments);
 	close_pipes(&arguments);
 	free_pipex(&arguments);

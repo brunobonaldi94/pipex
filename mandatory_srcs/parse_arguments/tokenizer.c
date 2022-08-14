@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:39:18 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/13 16:23:20 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/14 13:09:12 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int	keep_literal_string(char *current_argv, char scape_char,
 			int inner_index)
 {
-	if (scape_char == SLASH_STRING[0])
+	if (scape_char == SLASH_STRING[0]
+		&& current_argv[inner_index] == scape_char)
 	{
 		current_argv[inner_index] = SENTINEL_CHAR;
 		inner_index += 2;
-		return (inner_index);
 	}
-	if (current_argv[inner_index] == scape_char)
+	else if (current_argv[inner_index] == scape_char)
 	{
 		current_argv[inner_index] = SENTINEL_CHAR;
 		while (current_argv[inner_index]

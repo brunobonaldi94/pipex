@@ -16,9 +16,9 @@ OBJS = $(SRCS:.c=.o)
 
 NAME = pipex
 
-SRCS_LIBFT_PATH = ./libft/
+SRCS_LIBFT_PATH = ./libs/libft/
 LIBFT = libft.a
-LIBFT_FULL_PATH = $(addprefix $(SRCS_LIBFT_PATH),$(LIBFT))
+LIBFT_FULL_PATH = $(addprefix $(SRCS_LIBFT_PATH), $(LIBFT))
 
 INCLUDES = -I$(SRCS_LIBFT_PATH)includes -I$(SRCS_LIBFT_PATH) -I$(addprefix $(MANDATORY_PATH)/, includes)
 
