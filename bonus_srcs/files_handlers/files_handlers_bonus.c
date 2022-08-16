@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   files_handlers.c                                   :+:      :+:    :+:   */
+/*   files_handlers_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:35:07 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/16 01:54:44 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/16 02:34:09 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 int	check_access_file(char *file_name, int access_permissions)
 {

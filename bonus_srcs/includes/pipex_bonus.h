@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/16 01:59:09 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/16 03:23:31 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -104,6 +104,7 @@ typedef struct s_arguments
 	int			std_out;
 	char		*path;
 	t_pipes_fd	*fd_pipes;
+	int			number_pipes;
 	pid_t		pids_fork;
 	int			number_commands;
 	int			exit_code;
@@ -130,10 +131,10 @@ void	print_custom_arg_error_and_exit(t_arguments *arguments, char *arg,
 void	perror_with_color(t_arguments *arguments, char *arg);
 void	perror_formmated(t_arguments *arguments, char *message);
 //CLOSE FDS
-void	close_read_pipe(t_arguments *arguments);
+void	close_read_pipe(t_arguments *arguments, int pipe_index);
 void	close_input(t_arguments *arguments);
 void	close_output(t_arguments *arguments);
-void	close_write_pipe(t_arguments *arguments);
+void	close_write_pipe(t_arguments *arguments, int pipe_index);
 void	close_pipes(t_arguments *arguments);
 void	close_input_output(t_arguments *arguments);
 void	close_all_fds(t_arguments *arguments);
