@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 22:59:50 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/16 03:17:27 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/15 23:38:16 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ void	create_pipes(t_arguments *arguments)
 			* arguments->number_commands - 1);
 	while (arguments->number_pipes < arguments->number_commands - 1)
 	{
-		if (pipe(arguments->fd_pipes[arguments->number_pipes].fd) == ERROR_CODE_FUNCTION)
+		if (pipe(arguments->fd_pipes[arguments->number_pipes].fd)
+			== ERROR_CODE_FUNCTION)
 		{
-			close_pipes(arguments);
+			close_pipes(arguments, CLOSE_ALL, CLOSE_ALL);
 			print_arg_error_and_exit(arguments, PIPE_ARG, EXIT_FAILURE);
 		}
 		arguments->number_pipes++;
@@ -72,7 +73,7 @@ int	main(int argc, char *argv[], char *envp[])
 	parse_args(&arguments);
 	create_pipes(&arguments);
 	fork_childs(&arguments);
-	close_pipes(&arguments);
+	close_pipes(&arguments, CLOSE_ALL, CLOSE_ALL);
 	free_pipex(&arguments);
 	return (get_exit_code(&arguments));
 }

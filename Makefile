@@ -62,7 +62,7 @@ $(NAME):	$(OBJS) $(LIBFT_FULL_PATH)
 $(NAME_BONUS):	$(OBJS_BONUS) $(LIBFT_FULL_PATH)
 	@tput setaf 2
 	@echo COMPILING PIPEX
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME_BONUS)
+	$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) -o $(NAME_BONUS)
 	@\cp -r $(NAME_BONUS) $(NAME)
 	@tput setaf 7
 	

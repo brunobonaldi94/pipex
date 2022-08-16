@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:35:22 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/16 03:08:38 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/16 00:01:31 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,29 @@ void	exec_commands(t_arguments *arguments, int process_index)
 	dup_stdin_out(arguments);
 	if (process_index == 0)
 	{
+		close_pipes(arguments, CLOSE_ALL, process_index);
 		arguments->input_file.fd = open_infile(arguments);
 		dup2(arguments->input_file.fd, STDIN_FILENO);
+		close(arguments->input_file.fd);
 		dup2(arguments->fd_pipes[process_index].fd[WRITE_FD], STDOUT_FILENO);
+		close(arguments->fd_pipes[process_index].fd[WRITE_FD]);
 	}
 	else if (process_index < arguments->number_commands - 1)
 	{
+		close_pipes(arguments, process_index - 1, process_index);
 		dup2(arguments->fd_pipes[process_index - 1].fd[READ_FD], STDIN_FILENO);
+		close(arguments->fd_pipes[process_index - 1].fd[READ_FD]);
 		dup2(arguments->fd_pipes[process_index].fd[WRITE_FD], STDOUT_FILENO);
+		close(arguments->fd_pipes[process_index].fd[WRITE_FD]);
 	}
 	else
 	{
+		close_pipes(arguments, process_index - 1, CLOSE_ALL);
 		dup2(arguments->fd_pipes[process_index - 1].fd[READ_FD], STDIN_FILENO);
+		close(arguments->fd_pipes[process_index - 1].fd[READ_FD]);
 		arguments->output_file.fd = open_output(arguments);
 		dup2(arguments->output_file.fd, STDOUT_FILENO);
+		close(arguments->output_file.fd);
 	}
 	exec_each_cmd(arguments, process_index);
 }

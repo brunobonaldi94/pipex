@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/16 03:23:31 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/15 23:27:35 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@
 # define PERMISSION_NOT_ALLOWED 1
 # define PERMISSION_OK 0
 
+# define CLOSE_ALL -1
+
 typedef struct s_file
 {
 	int		fd;
@@ -135,7 +137,8 @@ void	close_read_pipe(t_arguments *arguments, int pipe_index);
 void	close_input(t_arguments *arguments);
 void	close_output(t_arguments *arguments);
 void	close_write_pipe(t_arguments *arguments, int pipe_index);
-void	close_pipes(t_arguments *arguments);
+void	close_pipes(t_arguments *arguments, int keep_read_pipe_index,
+			int keep_write_pipe_index);
 void	close_input_output(t_arguments *arguments);
 void	close_all_fds(t_arguments *arguments);
 //PROCESSES

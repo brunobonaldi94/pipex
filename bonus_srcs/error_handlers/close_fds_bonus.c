@@ -6,21 +6,24 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:16:21 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/16 03:22:27 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/15 23:38:42 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
 
-void	close_pipes(t_arguments *arguments)
+void	close_pipes(t_arguments *arguments, int keep_read_pipe_index,
+			int keep_write_pipe_index)
 {
 	int	pipe_index;
 
 	pipe_index = 0;
-	while (pipe_index < arguments->number_pipes) 
+	while (pipe_index < arguments->number_pipes)
 	{
-		close_read_pipe(arguments, pipe_index);
-		close_write_pipe(arguments, pipe_index);
+		if (pipe_index != keep_read_pipe_index)
+			close_read_pipe(arguments, pipe_index);
+		if (pipe_index != keep_write_pipe_index)
+			close_write_pipe(arguments, pipe_index);
 		pipe_index++;
 	}
 }
