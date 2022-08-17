@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/10 22:08:20 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/17 03:19:04 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <sys/types.h>
 # include <string.h>
 # include <stdio.h>
+# include <errno.h>
 
 # define TRUE 1
 # define FALSE 0
@@ -38,6 +39,7 @@
 
 # define RED "\033[0;31m"
 # define BLUE "\033[0;34m"
+# define RESET "\033[0m"
 # define BLACK "\033[0;30m"
 # define GREEN "\033[0;32m"
 # define YELLOW "\033[0;33m"
@@ -46,11 +48,37 @@
 # define COMMANDS_OFFSET 3
 # define MINIMUM_NUMBER_ARGS 4
 
+# define PATH "PATH="
+# define DEFAULT_PERMISSION 0000664
+
+# define SPACE_CHAR ' '
+# define SINGLE_QUOTE_CHAR '\''
+# define DOUBLE_QUOTE_CHAR '"'
+# define COMMA_CHAR ':' 
+# define SLASH_STRING "/"
+# define SENTINEL_CHAR -28
+# define HERE_DOC "here_doc"
+
+# define PIPEX_NAME "pipex: "
 # define TOO_FEW_ARGUMENTS_ERROR_MSG "Pipex must be run with at least \
 'file1' 'cmd1' 'cmd2' 'file2' arguments"
-# define FILE_NOT_FOUND_ERROR_MSG "File does not exist!"
+# define TOO_MANY_ARGUMENTS_ERROR_MSG "Pipex must be run only with 4 args \
+'file1' 'cmd1' 'cmd2' 'file2' arguments"
+# define COMMAND_NOT_FOUND_ERROR_CODE 127
+# define COMMAND_NOT_FOUND_ERROR_MSG "command not found"
+# define FILE_NOT_FOUND_ERROR_MSG "no such file or directory!"
+# define PIPE_ARG "Pipe"
 # define PIPE_CREATION_ERROR_MSG "Error on creating pipe!"
+# define FORK_ARG "Fork"
 # define FORK_CREATION_ERROR_MSG "Error on initing fork!"
+# define PERMISSION_DENIED_ERROR_CODE 126
+# define PERMISSION_DENIED_ERROR_MSG "Permission denied"
+
+# define FILE_DOES_NOT_EXIST -1
+# define PERMISSION_NOT_ALLOWED 1
+# define PERMISSION_OK 0
+
+# define CLOSE_ALL -1
 
 typedef struct s_file
 {
@@ -70,17 +98,32 @@ typedef struct s_pipes_fd
 	int	fd[2];
 }	t_pipes_fd;
 
+typedef struct s_here_doc
+{
+	int		is_here_doc;
+	char	*delimiter;
+
+}	t_here_doc;
+
 typedef struct s_arguments
 {
 	int			argc;
 	char		**argv;
 	char		**envp;
+	int			std_in;
+	int			std_out;
+	char		*path;
 	t_pipes_fd	*fd_pipes;
-	pid_t		*pids_fork;
+	int			number_pipes;
+	pid_t		pids_fork;
 	int			number_commands;
+	int			exit_code;
+	int			index_commands_start;
+	int			commands_offset_number;
 	t_cmd		*commands;
 	t_file		input_file;
 	t_file		output_file;
+	t_here_doc	here_doc;
 }	t_arguments;
 
 //PARSE_ARGS_FUNCTIONS
@@ -89,14 +132,35 @@ int		parse_args(t_arguments *arguments);
 void	load_args(int argc, char *argv[], char *envp[],
 			t_arguments *arguments);
 void	parse_cmd(t_cmd *cmd);
-void	free_args(t_arguments *arguments);
-
 void	init_args(t_arguments *arguments);
 void	init_cmd(t_cmd *cmd);
+char	**tokenizer(t_arguments *arguments, int argv_index);
+//HERE_DOC
+int		check_here_doc_argument(t_arguments *arguments);
 //ERROR_HANDLER_FUNCTIONS
 void	exit_with_message(int status_code, char *message);
-void	print_arg_error(char *arg, int status_code, char *message);
+void	print_arg_error_and_exit(t_arguments *arguments, char *arg,
+			int status_code);
+void	print_custom_arg_error_and_exit(t_arguments *arguments, char *arg,
+			int status_code, char *message);
+void	perror_with_color(t_arguments *arguments, char *arg);
+void	perror_formmated(t_arguments *arguments, char *message);
+//CLOSE FDS
+void	close_read_pipe(t_arguments *arguments, int pipe_index);
+void	close_input(t_arguments *arguments);
+void	close_output(t_arguments *arguments);
+void	close_write_pipe(t_arguments *arguments, int pipe_index);
+void	close_pipes(t_arguments *arguments, int keep_read_pipe_index,
+			int keep_write_pipe_index);
+void	close_input_output(t_arguments *arguments);
+void	close_all_fds(t_arguments *arguments);
 //PROCESSES
-void	init_child_processes(t_arguments *arguments);
-void	exec_command(t_arguments *arguments, int i);
+void	exec_commands(t_arguments *arguments, int process_index);
+//FILES
+int		open_infile(t_arguments *arguments);
+int		open_output(t_arguments *arguments);
+//FREE
+void	free_cmd(t_arguments *arguments);
+void	free_args(t_arguments *arguments);
+void	free_pipex(t_arguments *arguments);
 #endif

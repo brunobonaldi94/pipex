@@ -16,7 +16,7 @@ OBJS = $(SRCS:.c=.o)
 
 BONUS_PATH = ./bonus_srcs
 SRCS_BONUS = $(BONUS_PATH)/pipex_bonus.c \
-		$(addprefix $(BONUS_PATH)/$(PARSE_ARGS_PATH)/,parse_arguments_bonus.c parse_arguments_utils_bonus.c init_arguments_bonus.c tokenizer_bonus.c) \
+		$(addprefix $(BONUS_PATH)/$(PARSE_ARGS_PATH)/,parse_arguments_bonus.c parse_arguments_utils_bonus.c init_arguments_bonus.c tokenizer_bonus.c here_doc_bonus.c) \
 		$(addprefix $(BONUS_PATH)/$(ERRORS_HANDLERS_PATH)/, error_handlers_utils_bonus.c error_handlers_utils_II_bonus.c close_fds_bonus.c close_fds_II_bonus.c) \
 		$(addprefix $(BONUS_PATH)/$(EXEC_CMD_PATH)/, exec_cmd_bonus.c) \
 		$(addprefix $(BONUS_PATH)/$(FILES_HANDLERS)/, files_handlers_bonus.c) \
@@ -30,8 +30,7 @@ SRCS_LIBFT_PATH = ./libs/libft/
 LIBFT = libft.a
 LIBFT_FULL_PATH = $(addprefix $(SRCS_LIBFT_PATH), $(LIBFT))
 
-INCLUDES = -I$(SRCS_LIBFT_PATH)includes -I$(SRCS_LIBFT_PATH) -I$(addprefix $(MANDATORY_PATH)/, includes)
-INCLUDES_BONUS = -I$(SRCS_LIBFT_PATH)includes -I$(SRCS_LIBFT_PATH) -I$(addprefix $(BONUS_PATH)/, includes)
+INCLUDES = -I$(SRCS_LIBFT_PATH)includes -I$(SRCS_LIBFT_PATH) -I./includes
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
@@ -39,9 +38,6 @@ RM = rm -rf
 
 %.o:	%.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-%_bonus.o:	%_bonus.c
-	$(CC) $(CFLAGS) $(INCLUDES_BONUS) -c $< -o $@
 
 all:	$(LIBFT_FULL_PATH) $(NAME)
 

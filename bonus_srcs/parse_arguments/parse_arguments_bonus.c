@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:53:42 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/16 02:46:46 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/17 03:20:31 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ void	parse_commands(t_arguments *arguments)
 	int	j;
 
 	arguments->number_commands = arguments->argc
-		- COMMANDS_OFFSET;
+		- arguments->commands_offset_number;
 	arguments->commands = (t_cmd *)malloc(sizeof(t_cmd)
 			* arguments->number_commands);
-	i = INDEX_COMMANDS_START;
+	i = arguments->index_commands_start;
 	j = 0;
 	while (i < arguments->argc - 1)
 	{
@@ -95,7 +95,9 @@ int	parse_args(t_arguments *arguments)
 {
 	if (arguments->argc <= MINIMUM_NUMBER_ARGS)
 		exit_with_message(ERROR_CODE, TOO_FEW_ARGUMENTS_ERROR_MSG);
-	arguments->input_file.file_name = arguments->argv[1];
+	arguments->here_doc.is_here_doc = check_here_doc_argument(arguments);
+	if (arguments->here_doc.is_here_doc == FALSE)
+		arguments->input_file.file_name = arguments->argv[1];
 	arguments->output_file.file_name = arguments->argv[arguments->argc - 1];
 	parse_path(arguments);
 	parse_commands(arguments);
