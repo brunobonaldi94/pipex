@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:35:07 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/16 01:54:44 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/17 23:06:20 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	check_access_file(char *file_name, int access_permissions)
 	int	file_permission;
 
 	file_permission = PERMISSION_OK;
-	if (access(file_name, F_OK) != SUCESS_CODE)
+	if (access(file_name, F_OK) != SUCCESS_CODE)
 		file_permission = FILE_DOES_NOT_EXIST;
-	else if (access(file_name, access_permissions) != SUCESS_CODE)
+	else if (access(file_name, access_permissions) != SUCCESS_CODE)
 		file_permission = PERMISSION_NOT_ALLOWED;
 	return (file_permission);
 }

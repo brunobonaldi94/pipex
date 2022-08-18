@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:53:42 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/17 03:20:31 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/17 23:06:20 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	check_access_bin(t_cmd *cmd)
 	int	is_valid;
 
 	is_valid = FALSE;
-	if (access(cmd->cmd, R_OK) == SUCESS_CODE)
+	if (access(cmd->cmd, R_OK) == SUCCESS_CODE)
 		return (TRUE);
 	free(cmd->cmd);
 	cmd->cmd = NULL;

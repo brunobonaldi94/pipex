@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:39:18 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/17 03:09:51 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/17 20:20:28 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	replace_delimiter_by_sentinel_char(t_arguments *arguments,
 	while (arguments->argv[argv_index][i])
 	{
 		i = keep_literal_string(arguments->argv[argv_index],
-			SLASH_STRING[0], i);
+				SLASH_STRING[0], i);
 		i = keep_literal_string(arguments->argv[argv_index],
 				SINGLE_QUOTE_CHAR, i);
 		i = keep_literal_string(arguments->argv[argv_index],

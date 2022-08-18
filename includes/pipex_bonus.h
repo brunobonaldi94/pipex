@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/17 03:19:04 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/17 23:06:20 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include "../libft/libft.h"
+# include "libft.h"
 # include <sys/wait.h>
 # include <sys/types.h>
 # include <string.h>
@@ -27,7 +27,7 @@
 # define FALSE 0
 
 # define ERROR_CODE 1
-# define SUCESS_CODE 0
+# define SUCCESS_CODE 0
 # define ERROR_CODE_FUNCTION -1
 
 # define READ_FD 0
@@ -137,6 +137,8 @@ void	init_cmd(t_cmd *cmd);
 char	**tokenizer(t_arguments *arguments, int argv_index);
 //HERE_DOC
 int		check_here_doc_argument(t_arguments *arguments);
+void	parse_here_doc(t_arguments *arguments, int fd_here_doc);
+void	create_here_doc(t_arguments *arguments, int process_index);
 //ERROR_HANDLER_FUNCTIONS
 void	exit_with_message(int status_code, char *message);
 void	print_arg_error_and_exit(t_arguments *arguments, char *arg,
@@ -156,6 +158,9 @@ void	close_input_output(t_arguments *arguments);
 void	close_all_fds(t_arguments *arguments);
 //PROCESSES
 void	exec_commands(t_arguments *arguments, int process_index);
+void	handle_fds_first_cmd(t_arguments *arguments, int process_index);
+void	handle_fds_middles_cmds(t_arguments *arguments, int process_index);
+void	handle_fds_last_cmd(t_arguments *arguments, int process_index);
 //FILES
 int		open_infile(t_arguments *arguments);
 int		open_output(t_arguments *arguments);

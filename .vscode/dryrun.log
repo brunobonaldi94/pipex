@@ -1,23 +1,17 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/home/brunobonaldi/Desktop/pipexp'
-tput setaf 4
-echo COMPILING LIBFT
-make bonus -C ./libs/libft/
-cp ./libs/libft/libft.a ./
-gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./mandatory_srcs/includes -c mandatory_srcs/pipex.c -o mandatory_srcs/pipex.o
- 
-gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./mandatory_srcs/includes -c mandatory_srcs/parse_arguments/parse_arguments.c -o mandatory_srcs/parse_arguments/parse_arguments.o
-gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./mandatory_srcs/includes -c mandatory_srcs/parse_arguments/parse_arguments_utils.c -o mandatory_srcs/parse_arguments/parse_arguments_utils.o
-gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./mandatory_srcs/includes -c mandatory_srcs/parse_arguments/init_arguments.c -o mandatory_srcs/parse_arguments/init_arguments.o
-gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./mandatory_srcs/includes -c mandatory_srcs/parse_arguments/tokenizer.c -o mandatory_srcs/parse_arguments/tokenizer.o
-gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./mandatory_srcs/includes -c mandatory_srcs/error_handlers/error_handlers_utils.c -o mandatory_srcs/error_handlers/error_handlers_utils.o
-gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./mandatory_srcs/includes -c mandatory_srcs/error_handlers/error_handlers_utils_II.c -o mandatory_srcs/error_handlers/error_handlers_utils_II.o
- 
-gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./mandatory_srcs/includes -c mandatory_srcs/error_handlers/close_fds.c -o mandatory_srcs/error_handlers/close_fds.o
-gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./mandatory_srcs/includes -c mandatory_srcs/error_handlers/close_fds_II.c -o mandatory_srcs/error_handlers/close_fds_II.o
-gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./mandatory_srcs/includes -c mandatory_srcs/exec_cmd/exec_cmd.c -o mandatory_srcs/exec_cmd/exec_cmd.o
-gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./mandatory_srcs/includes -c mandatory_srcs/files_handlers/files_handlers.c -o mandatory_srcs/files_handlers/files_handlers.o
-gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./mandatory_srcs/includes -c mandatory_srcs/free_arguments/free_arguments.c -o mandatory_srcs/free_arguments/free_arguments.o
+gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./includes -c mandatory_srcs/pipex.c -o mandatory_srcs/pipex.o
+gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./includes -c mandatory_srcs/parse_arguments/parse_arguments.c -o mandatory_srcs/parse_arguments/parse_arguments.o
+gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./includes -c mandatory_srcs/parse_arguments/parse_arguments_utils.c -o mandatory_srcs/parse_arguments/parse_arguments_utils.o
+gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./includes -c mandatory_srcs/parse_arguments/init_arguments.c -o mandatory_srcs/parse_arguments/init_arguments.o
+gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./includes -c mandatory_srcs/parse_arguments/tokenizer.c -o mandatory_srcs/parse_arguments/tokenizer.o
+gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./includes -c mandatory_srcs/error_handlers/error_handlers_utils.c -o mandatory_srcs/error_handlers/error_handlers_utils.o
+gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./includes -c mandatory_srcs/error_handlers/error_handlers_utils_II.c -o mandatory_srcs/error_handlers/error_handlers_utils_II.o
+gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./includes -c mandatory_srcs/error_handlers/close_fds.c -o mandatory_srcs/error_handlers/close_fds.o
+gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./includes -c mandatory_srcs/error_handlers/close_fds_II.c -o mandatory_srcs/error_handlers/close_fds_II.o
+gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./includes -c mandatory_srcs/exec_cmd/exec_cmd.c -o mandatory_srcs/exec_cmd/exec_cmd.o
+gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./includes -c mandatory_srcs/files_handlers/files_handlers.c -o mandatory_srcs/files_handlers/files_handlers.o
+gcc -Wall -Wextra -Werror -g -I./libs/libft/includes -I./libs/libft/ -I./includes -c mandatory_srcs/free_arguments/free_arguments.c -o mandatory_srcs/free_arguments/free_arguments.o
 tput setaf 2
 echo COMPILING PIPEX
 gcc -Wall -Wextra -Werror -g ./mandatory_srcs/pipex.o ./mandatory_srcs/parse_arguments/parse_arguments.o ./mandatory_srcs/parse_arguments/parse_arguments_utils.o ./mandatory_srcs/parse_arguments/init_arguments.o ./mandatory_srcs/parse_arguments/tokenizer.o ./mandatory_srcs/error_handlers/error_handlers_utils.o ./mandatory_srcs/error_handlers/error_handlers_utils_II.o ./mandatory_srcs/error_handlers/close_fds.o ./mandatory_srcs/error_handlers/close_fds_II.o ./mandatory_srcs/exec_cmd/exec_cmd.o ./mandatory_srcs/files_handlers/files_handlers.o ./mandatory_srcs/free_arguments/free_arguments.o libft.a -o pipex

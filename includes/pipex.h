@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/16 01:59:09 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/17 23:06:20 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include "../libft/libft.h"
+# include "libft.h"
 # include <sys/wait.h>
 # include <sys/types.h>
 # include <string.h>
@@ -27,7 +27,7 @@
 # define FALSE 0
 
 # define ERROR_CODE 1
-# define SUCESS_CODE 0
+# define SUCCESS_CODE 0
 # define ERROR_CODE_FUNCTION -1
 
 # define READ_FD 0

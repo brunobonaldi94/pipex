@@ -6,6 +6,8 @@
 		"pipex.h": "c",
 		"libft.h": "c",
 		"*.tcc": "c",
-		"fstream": "c"
+		"fstream": "c",
+		"atomic": "c",
+		"cerrno": "c"
 	}
 }

@@ -34,7 +34,8 @@ SRCS =	ft_isalpha.c \
 		ft_putnbr_fd.c \
 		ft_ptr_free.c \
 		ft_get_nbr_elements.c \
-		ft_strrchr_pos.c
+		ft_strrchr_pos.c \
+		ft_strnstr_pos.c
 
 SRCS_BONUS = 	ft_lstnew.c \
 				ft_lstadd_front.c \

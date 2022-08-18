@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 00:00:43 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/16 02:34:32 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/17 23:06:20 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	exit_with_message(int status_code, char *message)
 {
-	if (status_code == SUCESS_CODE)
+	if (status_code == SUCCESS_CODE)
 		ft_printf(GREEN"%s\n", message);
 	else
 		ft_printf(RED"%s\n", message);

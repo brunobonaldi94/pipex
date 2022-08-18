@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 03:14:41 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/07/19 01:12:15 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/17 22:02:04 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
+int		ft_strnstr_pos(const char *s1, const char *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *nptr);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
