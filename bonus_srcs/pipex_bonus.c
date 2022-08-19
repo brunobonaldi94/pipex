@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 22:59:50 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/18 00:11:59 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/18 22:13:11 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	get_exit_code(t_arguments *arguments)
 {
 	int	i;
 
-	arguments->exit_code = 0;
 	i = 0;
 	while (i < arguments->number_commands)
 	{

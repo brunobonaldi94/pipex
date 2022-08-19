@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/17 23:06:20 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/18 20:58:35 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@
 # define DOUBLE_QUOTE_CHAR '"'
 # define COMMA_CHAR ':' 
 # define SLASH_STRING "/"
+# define BACKSLASH_CHAR '\\'
 # define SENTINEL_CHAR -28
 
 # define PIPEX_NAME "pipex: "
@@ -119,6 +120,8 @@ void	load_args(int argc, char *argv[], char *envp[],
 			t_arguments *arguments);
 void	parse_cmd(t_cmd *cmd);
 void	init_args(t_arguments *arguments);
+void	check_command_bin_with_no_path(t_arguments *arguments,
+			int command_index);
 void	init_cmd(t_cmd *cmd);
 char	**tokenizer(t_arguments *arguments, int argv_index);
 //ERROR_HANDLER_FUNCTIONS

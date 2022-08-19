@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 00:00:43 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/17 23:06:20 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/18 20:05:32 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 void	exit_with_message(int status_code, char *message)
 {
-	if (status_code == SUCCESS_CODE)
-		ft_printf(GREEN"%s\n", message);
-	else
-		ft_printf(RED"%s\n", message);
-	ft_printf(RESET);
+	ft_printf("%s\n", message);
 	exit(status_code);
 }
 
@@ -32,10 +28,8 @@ void	print_custom_arg_error_and_exit(t_arguments *arguments, char *arg,
 
 void	perror_with_color(t_arguments *arguments, char *arg)
 {
-	ft_printf(RED);
 	perror_formmated(arguments, arg);
 	free_pipex(arguments);
-	ft_printf(RESET);
 }
 
 void	print_arg_error_and_exit(t_arguments *arguments, char *arg,

@@ -1,1 +1,12 @@
-724
+total 108
+drwxrwxr-x 4 brunobonaldi brunobonaldi  4096 ago 10 22:25 .
+drwxrwxr-x 9 brunobonaldi brunobonaldi  4096 ago 10 22:24 ..
+-rw-rw-r-- 1 brunobonaldi brunobonaldi   108 ago 10 22:00 fn_allowed
+-rw-rw-r-- 1 brunobonaldi brunobonaldi    12 ago 10 22:10 fn_used
+drwxrwxr-x 8 brunobonaldi brunobonaldi  4096 ago 10 22:25 .git
+-rwxrwxrwx 1 brunobonaldi brunobonaldi     0 ago 10 22:25 infile
+-rw-rw-r-- 1 brunobonaldi brunobonaldi   160 ago 10 22:00 Makefile
+drwxrwxr-x 2 brunobonaldi brunobonaldi  4096 ago 10 22:25 output
+-rwxrwxr-x 1 brunobonaldi brunobonaldi 53712 ago 10 22:25 pipex
+-rw-rw-r-- 1 brunobonaldi brunobonaldi   176 ago 10 22:00 README.md
+-rwxrwxr-x 1 brunobonaldi brunobonaldi 18826 ago 10 22:00 test.sh

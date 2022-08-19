@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 20:21:14 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/17 23:05:17 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/18 21:16:35 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	handle_fds_first_cmd(t_arguments *arguments, int process_index)
 {
 	if (arguments->here_doc.is_here_doc == TRUE)
 	{
-		create_here_doc(arguments, process_index);
+		pipe_here_doc(arguments, process_index);
 		return ;
 	}
 	close_pipes(arguments, CLOSE_ALL, process_index);

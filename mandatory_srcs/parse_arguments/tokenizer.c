@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:39:18 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/14 13:09:12 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/18 20:51:52 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	keep_literal_string(char *current_argv, char scape_char,
 			int inner_index)
 {
-	if (scape_char == SLASH_STRING[0]
+	if (scape_char == BACKSLASH_CHAR
 		&& current_argv[inner_index] == scape_char)
 	{
 		current_argv[inner_index] = SENTINEL_CHAR;
@@ -40,6 +40,8 @@ void	replace_delimiter_by_sentinel_char(t_arguments *arguments,
 	i = 0;
 	while (arguments->argv[argv_index][i])
 	{
+		i = keep_literal_string(arguments->argv[argv_index],
+				BACKSLASH_CHAR, i);
 		i = keep_literal_string(arguments->argv[argv_index],
 				SINGLE_QUOTE_CHAR, i);
 		i = keep_literal_string(arguments->argv[argv_index],

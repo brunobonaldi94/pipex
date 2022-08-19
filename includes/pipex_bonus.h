@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/17 23:06:20 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/18 21:16:36 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@
 # define DOUBLE_QUOTE_CHAR '"'
 # define COMMA_CHAR ':' 
 # define SLASH_STRING "/"
+# define BACKSLASH_CHAR '\\'
 # define SENTINEL_CHAR -28
 # define HERE_DOC "here_doc"
 
@@ -132,13 +133,15 @@ int		parse_args(t_arguments *arguments);
 void	load_args(int argc, char *argv[], char *envp[],
 			t_arguments *arguments);
 void	parse_cmd(t_cmd *cmd);
+void	check_command_bin_with_no_path(t_arguments *arguments,
+			int command_index);
 void	init_args(t_arguments *arguments);
 void	init_cmd(t_cmd *cmd);
 char	**tokenizer(t_arguments *arguments, int argv_index);
 //HERE_DOC
 int		check_here_doc_argument(t_arguments *arguments);
 void	parse_here_doc(t_arguments *arguments, int fd_here_doc);
-void	create_here_doc(t_arguments *arguments, int process_index);
+void	pipe_here_doc(t_arguments *arguments, int process_index);
 //ERROR_HANDLER_FUNCTIONS
 void	exit_with_message(int status_code, char *message);
 void	print_arg_error_and_exit(t_arguments *arguments, char *arg,

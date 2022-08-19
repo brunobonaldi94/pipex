@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:53:42 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/17 23:06:20 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/18 20:39:38 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	parse_command_bin(t_arguments *arguments, int index)
 		i++;
 	}
 	free(path_split);
+	if (arguments->commands[index].cmd == NULL)
+		check_command_bin_with_no_path(arguments, index);
 	return (is_valid_bin);
 }
 

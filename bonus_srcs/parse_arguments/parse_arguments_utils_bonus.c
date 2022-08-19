@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:54:58 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/16 02:46:45 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/18 21:14:56 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,15 @@ void	parse_cmd(t_cmd *cmd)
 		cmd_index++;
 	}
 	cmd->argv[cmd_index] = NULL;
+}
+
+void	check_command_bin_with_no_path(t_arguments *arguments,
+			int command_index)
+{
+	if (access(arguments->commands[command_index].cmd_to_parse[0], R_OK)
+		== SUCCESS_CODE)
+	{
+		arguments->commands[command_index].cmd
+			= ft_strdup(arguments->commands[command_index].cmd_to_parse[0]);
+	}
 }
