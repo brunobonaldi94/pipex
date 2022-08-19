@@ -44,5 +44,6 @@ void	free_args(t_arguments *arguments)
 void	free_pipex(t_arguments *arguments)
 {
 	free(arguments->fd_pipes);
+	free(arguments->pids_fork);
 	free_args(arguments);
 }

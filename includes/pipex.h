@@ -105,7 +105,7 @@ typedef struct s_arguments
 	int			std_out;
 	char		*path;
 	t_pipes_fd	*fd_pipes;
-	pid_t		pids_fork;
+	pid_t		*pids_fork;
 	int			number_commands;
 	int			exit_code;
 	t_cmd		*commands;

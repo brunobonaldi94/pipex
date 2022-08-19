@@ -36,7 +36,7 @@ void	init_pipe_args(t_arguments *arguments)
 {
 	arguments->fd_pipes = NULL;
 	arguments->number_commands = 0;
-	arguments->pids_fork = 1;
+	arguments->pids_fork = NULL;
 	arguments->commands = NULL;
 	arguments->input_file.file_name = NULL;
 	arguments->input_file.fd = 0;

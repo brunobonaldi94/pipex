@@ -12,21 +12,19 @@
 
 #include "pipex.h"
 
-int	get_exit_code(t_arguments *arguments)
+int	get_exit_code_and_free(t_arguments *arguments)
 {
 	int	i;
 
 	i = 0;
 	while (i < arguments->number_commands)
 	{
-		waitpid(arguments->pids_fork, &arguments->exit_code, 0);
+		waitpid(arguments->pids_fork[i], &arguments->exit_code, 0);
 		if (WIFEXITED(arguments->exit_code))
-		{
 			arguments->exit_code = WEXITSTATUS(arguments->exit_code);
-			return (arguments->exit_code);
-		}
 		i++;
 	}
+	free_pipex(arguments);
 	return (arguments->exit_code);
 }
 
@@ -35,13 +33,15 @@ void	fork_childs(t_arguments *arguments)
 	int	i;
 
 	i = 0;
+	arguments->pids_fork = (pid_t *)malloc(sizeof(pid_t) 
+		* arguments->number_commands);
 	while (i < arguments->number_commands)
 	{
-		if (arguments->pids_fork != 0)
-			arguments->pids_fork = fork();
-		if (arguments->pids_fork == -1)
+		if (arguments->pids_fork[i] != 0)
+			arguments->pids_fork[i] = fork();
+		if (arguments->pids_fork[i] == -1)
 			print_arg_error_and_exit(arguments, FORK_ARG, EXIT_FAILURE);
-		if (arguments->pids_fork == 0)
+		if (arguments->pids_fork[i] == 0)
 			exec_commands(arguments, i);
 		i++;
 	}
@@ -74,6 +74,5 @@ int	main(int argc, char *argv[], char *envp[])
 	create_pipes(&arguments);
 	fork_childs(&arguments);
 	close_pipes(&arguments);
-	free_pipex(&arguments);
-	return (get_exit_code(&arguments));
+	return (get_exit_code_and_free(&arguments));
 }
