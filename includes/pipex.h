@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/18 20:58:35 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/18 23:11:18 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,8 @@ void	close_input_output(t_arguments *arguments);
 void	close_all_fds(t_arguments *arguments);
 //PROCESSES
 void	exec_commands(t_arguments *arguments, int process_index);
+void	handle_fds_first_cmd(t_arguments *arguments);
+void	handle_fds_last_cmd(t_arguments *arguments);
 //FILES
 int		open_infile(t_arguments *arguments);
 int		open_output(t_arguments *arguments);

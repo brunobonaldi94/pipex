@@ -1,31 +1,18 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.3
- 
 # Built for x86_64-pc-linux-gnu
- 
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
- 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
- 
 # This is free software: you are free to change and redistribute it.
- 
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
- 
-# Make data base, printed on Thu Aug 18 22:07:57 2022
- 
+# Make data base, printed on Fri Aug 19 00:25:23 2022
 
 # Variables
- 
 
- 
 # environment
- 
 GDK_BACKEND = x11
- 
 # environment
- 
 LC_ALL = C
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
@@ -96,7 +83,7 @@ CURDIR := /home/brunobonaldi/Desktop/pipexp
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # makefile (from 'Makefile', line 8)
-SRCS = $(MANDATORY_PATH)/pipex.c $(addprefix $(MANDATORY_PATH)/$(PARSE_ARGS_PATH)/,parse_arguments.c parse_arguments_utils.c init_arguments.c tokenizer.c) $(addprefix $(MANDATORY_PATH)/$(ERRORS_HANDLERS_PATH)/, error_handlers_utils.c error_handlers_utils_II.c close_fds.c close_fds_II.c) $(addprefix $(MANDATORY_PATH)/$(EXEC_CMD_PATH)/, exec_cmd.c) $(addprefix $(MANDATORY_PATH)/$(FILES_HANDLERS)/, files_handlers.c) $(addprefix $(MANDATORY_PATH)/$(FREE_ARGUMENTS_PATH)/, free_arguments.c)
+SRCS = $(MANDATORY_PATH)/pipex.c $(addprefix $(MANDATORY_PATH)/$(PARSE_ARGS_PATH)/,parse_arguments.c parse_arguments_utils.c init_arguments.c tokenizer.c) $(addprefix $(MANDATORY_PATH)/$(ERRORS_HANDLERS_PATH)/, error_handlers_utils.c error_handlers_utils_II.c close_fds.c close_fds_II.c) $(addprefix $(MANDATORY_PATH)/$(EXEC_CMD_PATH)/, exec_cmd.c exec_cmd_utils.c) $(addprefix $(MANDATORY_PATH)/$(FILES_HANDLERS)/, files_handlers.c) $(addprefix $(MANDATORY_PATH)/$(FREE_ARGUMENTS_PATH)/, free_arguments.c)
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # makefile (from 'Makefile', line 17)
@@ -120,7 +107,7 @@ MAKEFILE_LIST := Makefile
 # environment
 ZSH = /home/brunobonaldi/.oh-my-zsh
 # environment
-VSCODE_PID = 8561
+VSCODE_PID = 148498
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -230,7 +217,7 @@ DESKTOP_MODE = 1
 # environment
 LC_MEASUREMENT = pt_BR.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 8561
+GIO_LAUNCHED_DESKTOP_FILE_PID = 148498
 # environment
 PAGER = less
 # environment
@@ -284,26 +271,21 @@ GDMSESSION = ubuntu
 # environment
 LC_IDENTIFICATION = pt_BR.UTF-8
 # variable set hash-table stats:
-# Load=130/1024=13%, Rehash=0, Collisions=13/205=6%
+# Load=130/1024=13%, Rehash=0, Collisions=13/213=6%
 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
 
 # Directories
+ 
 
-# mandatory_srcs/free_arguments (device 66307, inode 9577693): 3 files, no impossibilities so far.
 # . (device 66307, inode 3288579): 21 files, no impossibilities.
-# mandatory_srcs/error_handlers (device 66307, inode 3288780): 10 files, no impossibilities so far.
 # mandatory_srcs (device 66307, inode 3288779): 8 files, no impossibilities so far.
-# mandatory_srcs/exec_cmd (device 66307, inode 3288575): 3 files, no impossibilities so far.
-# mandatory_srcs/parse_arguments (device 66307, inode 3288784): 5 files, no impossibilities so far.
-# mandatory_srcs/files_handlers (device 66307, inode 3292511): 1 files, no impossibilities so far.
 
-# 51 files, no impossibilities in 7 directories.
+# 29 files, no impossibilities in 2 directories.
 
 # Implicit Rules
- 
 
 %.o: %.c
 #  recipe to execute (from 'Makefile', line 40):
@@ -313,34 +295,10 @@ LC_IDENTIFICATION = pt_BR.UTF-8
 # Files
 
 # Not a target:
-mandatory_srcs/parse_arguments/init_arguments.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-18 20:08:32.209485491
-#  File has been updated.
-#  Successfully updated.
-
-mandatory_srcs/error_handlers/close_fds_II.o: mandatory_srcs/error_handlers/close_fds_II.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/error_handlers/close_fds_II'
-#  Last modified 2022-08-18 22:06:39.085904088
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-# Not a target:
-mandatory_srcs/error_handlers/error_handlers_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-17 23:06:20.904454371
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-mandatory_srcs/error_handlers/close_fds.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-13 13:48:45.907187402
-#  File has been updated.
-#  Successfully updated.
+mandatory_srcs/error_handlers/close_fds_II.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 bonus_srcs/parse_arguments/init_arguments_bonus.o:
@@ -349,49 +307,22 @@ bonus_srcs/parse_arguments/init_arguments_bonus.o:
 #  File has not been updated.
 
 # Not a target:
-mandatory_srcs/exec_cmd/exec_cmd.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-13 18:20:00.672056568
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
 bonus_srcs/error_handlers/close_fds_bonus.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-mandatory_srcs/parse_arguments/parse_arguments_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-18 21:20:56.097742069
-#  File has been updated.
-#  Successfully updated.
-
-mandatory_srcs/exec_cmd/exec_cmd.o: mandatory_srcs/exec_cmd/exec_cmd.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/exec_cmd/exec_cmd'
-#  Last modified 2022-08-18 22:06:39.321904102
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+mandatory_srcs/exec_cmd/exec_cmd.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-mandatory_srcs/error_handlers/close_fds_II.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-13 13:47:00.799181788
-#  File has been updated.
-#  Successfully updated.
-
-mandatory_srcs/error_handlers/close_fds.o: mandatory_srcs/error_handlers/close_fds.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/error_handlers/close_fds'
-#  Last modified 2022-08-18 22:06:38.881904076
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+mandatory_srcs/error_handlers/close_fds.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 bonus_srcs/free_arguments/free_arguments_bonus.o:
@@ -402,7 +333,7 @@ bonus_srcs/free_arguments/free_arguments_bonus.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-17 23:41:30.084515557
+#  Last modified 2022-08-18 23:11:17.182133154
 #  File has been updated.
 #  Successfully updated.
 
@@ -415,38 +346,48 @@ bonus_srcs/error_handlers/error_handlers_utils_bonus.o:
 mandatory_srcs/pipex.o: mandatory_srcs/pipex.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'mandatory_srcs/pipex'
-#  Last modified 2022-08-18 22:06:37.985904023
+#  Last modified 2022-08-19 00:20:58.522380131
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := mandatory_srcs/pipex.o
+# automatic
+# * := mandatory_srcs/pipex
+# automatic
+# < := mandatory_srcs/pipex.c
+# automatic
+# + := mandatory_srcs/pipex.c
+# automatic
+# % := 
+# automatic
+# ^ := mandatory_srcs/pipex.c
+# automatic
+# ? := mandatory_srcs/pipex.c
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/18=11%
 #  recipe to execute (from 'Makefile', line 40):
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-pipex: mandatory_srcs/pipex.o mandatory_srcs/parse_arguments/parse_arguments.o mandatory_srcs/parse_arguments/parse_arguments_utils.o mandatory_srcs/parse_arguments/init_arguments.o mandatory_srcs/parse_arguments/tokenizer.o mandatory_srcs/error_handlers/error_handlers_utils.o mandatory_srcs/error_handlers/error_handlers_utils_II.o mandatory_srcs/error_handlers/close_fds.o mandatory_srcs/error_handlers/close_fds_II.o mandatory_srcs/exec_cmd/exec_cmd.o mandatory_srcs/files_handlers/files_handlers.o mandatory_srcs/free_arguments/free_arguments.o libs/libft/libft.a
+pipex: mandatory_srcs/pipex.o mandatory_srcs/parse_arguments/parse_arguments.o mandatory_srcs/parse_arguments/parse_arguments_utils.o mandatory_srcs/parse_arguments/init_arguments.o mandatory_srcs/parse_arguments/tokenizer.o mandatory_srcs/error_handlers/error_handlers_utils.o mandatory_srcs/error_handlers/error_handlers_utils_II.o mandatory_srcs/error_handlers/close_fds.o mandatory_srcs/error_handlers/close_fds_II.o mandatory_srcs/exec_cmd/exec_cmd.o mandatory_srcs/exec_cmd/exec_cmd_utils.o mandatory_srcs/files_handlers/files_handlers.o mandatory_srcs/free_arguments/free_arguments.o libs/libft/libft.a
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-18 22:07:24.501906771
+#  Last modified 2022-08-19 00:21:48.602383089
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/8=0%
 #  recipe to execute (from 'Makefile', line 53):
 	@tput setaf 2
 	@echo COMPILING PIPEX
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 	@tput setaf 7
 
-mandatory_srcs/parse_arguments/parse_arguments_utils.o: mandatory_srcs/parse_arguments/parse_arguments_utils.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/parse_arguments/parse_arguments_utils'
-#  Last modified 2022-08-18 22:06:38.325904043
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
 # Not a target:
-mandatory_srcs/free_arguments/free_arguments.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-13 18:23:59.83606934
-#  File has been updated.
-#  Successfully updated.
+mandatory_srcs/parse_arguments/parse_arguments_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 bonus: libs/libft/libft.a pipex_bonus
 #  Phony target (prerequisite of .PHONY).
@@ -454,14 +395,11 @@ bonus: libs/libft/libft.a pipex_bonus
 #  File does not exist.
 #  File has not been updated.
 
-mandatory_srcs/error_handlers/error_handlers_utils.o: mandatory_srcs/error_handlers/error_handlers_utils.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/error_handlers/error_handlers_utils'
-#  Last modified 2022-08-18 22:06:38.569904058
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+# Not a target:
+mandatory_srcs/error_handlers/error_handlers_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 clean:
 #  Phony target (prerequisite of .PHONY).
@@ -472,23 +410,17 @@ clean:
 	make clean -C $(SRCS_LIBFT_PATH)
 	$(RM) $(OBJS) $(OBJS_BONUS)
 
-mandatory_srcs/parse_arguments/tokenizer.o: mandatory_srcs/parse_arguments/tokenizer.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/parse_arguments/tokenizer'
-#  Last modified 2022-08-18 22:06:38.509904054
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+# Not a target:
+mandatory_srcs/parse_arguments/tokenizer.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-mandatory_srcs/error_handlers/error_handlers_utils_II.o: mandatory_srcs/error_handlers/error_handlers_utils_II.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/error_handlers/error_handlers_utils_II'
-#  Last modified 2022-08-18 22:06:38.645904062
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+# Not a target:
+mandatory_srcs/error_handlers/error_handlers_utils_II.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 bonus_srcs/parse_arguments/parse_arguments_utils_bonus.o:
@@ -511,22 +443,19 @@ re: fclean all
 # Not a target:
 mandatory_srcs/pipex.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-18 20:09:35.977489257
+#  Last modified 2022-08-19 00:21:36.670382384
 #  File has been updated.
 #  Successfully updated.
 
-mandatory_srcs/parse_arguments/parse_arguments.o: mandatory_srcs/parse_arguments/parse_arguments.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/parse_arguments/parse_arguments'
-#  Last modified 2022-08-18 22:06:38.129904032
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+# Not a target:
+mandatory_srcs/parse_arguments/parse_arguments.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 libs/libft/libft.a:
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-18 22:06:37.817904013
+#  Last modified 2022-08-18 23:58:52.662301817
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 47):
@@ -553,14 +482,11 @@ bonus_srcs/pipex_bonus.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-mandatory_srcs/parse_arguments/init_arguments.o: mandatory_srcs/parse_arguments/init_arguments.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/parse_arguments/init_arguments'
-#  Last modified 2022-08-18 22:06:38.421904049
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+# Not a target:
+mandatory_srcs/parse_arguments/init_arguments.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 all: libs/libft/libft.a pipex
 #  Phony target (prerequisite of .PHONY).
@@ -568,7 +494,9 @@ all: libs/libft/libft.a pipex
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/8=0%
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -581,29 +509,21 @@ fclean: clean
 
 # Not a target:
 bonus_srcs/exec_cmd/exec_cmd_utils_bonus.o:
- 
 #  Implicit rule search has not been done.
- 
 #  Modification time never checked.
 #  File has not been updated.
 
-mandatory_srcs/free_arguments/free_arguments.o: mandatory_srcs/free_arguments/free_arguments.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/free_arguments/free_arguments'
-#  Last modified 2022-08-18 22:06:39.697904124
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+# Not a target:
+mandatory_srcs/free_arguments/free_arguments.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-mandatory_srcs/files_handlers/files_handlers.o: mandatory_srcs/files_handlers/files_handlers.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/files_handlers/files_handlers'
-#  Last modified 2022-08-18 22:06:39.517904114
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+# Not a target:
+mandatory_srcs/files_handlers/files_handlers.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 bonus_srcs/parse_arguments/here_doc_bonus.o:
@@ -618,11 +538,10 @@ bonus_srcs/parse_arguments/parse_arguments_bonus.o:
 #  File has not been updated.
 
 # Not a target:
-mandatory_srcs/parse_arguments/parse_arguments.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-18 20:39:38.209595709
-#  File has been updated.
-#  Successfully updated.
+mandatory_srcs/exec_cmd/exec_cmd_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 pipex_bonus: bonus_srcs/pipex_bonus.o bonus_srcs/parse_arguments/parse_arguments_bonus.o bonus_srcs/parse_arguments/parse_arguments_utils_bonus.o bonus_srcs/parse_arguments/init_arguments_bonus.o bonus_srcs/parse_arguments/tokenizer_bonus.o bonus_srcs/parse_arguments/here_doc_bonus.o bonus_srcs/error_handlers/error_handlers_utils_bonus.o bonus_srcs/error_handlers/error_handlers_utils_II_bonus.o bonus_srcs/error_handlers/close_fds_bonus.o bonus_srcs/error_handlers/close_fds_II_bonus.o bonus_srcs/exec_cmd/exec_cmd_bonus.o bonus_srcs/exec_cmd/exec_cmd_utils_bonus.o bonus_srcs/files_handlers/files_handlers_bonus.o bonus_srcs/free_arguments/free_arguments_bonus.o libs/libft/libft.a
 #  Implicit rule search has not been done.
@@ -648,52 +567,32 @@ bonus_srcs/exec_cmd/exec_cmd_bonus.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-mandatory_srcs/parse_arguments/tokenizer.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-18 20:51:52.109639058
-#  File has been updated.
-#  Successfully updated.
-
 .PHONY: all clean fclean re bonus
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-mandatory_srcs/files_handlers/files_handlers.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-17 23:06:20.900454371
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-mandatory_srcs/error_handlers/error_handlers_utils_II.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-15 23:18:27.77047552
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
 bonus_srcs/error_handlers/close_fds_II_bonus.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 
 # files hash-table stats:
-# Load=50/1024=5%, Rehash=0, Collisions=4/140=3%
+# Load=40/1024=4%, Rehash=0, Collisions=1/98=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 111 / storage = 3049 B / avg = 27 B
-# current buf: size = 8162 B / used = 3049 B / count = 111 / avg = 27 B
+# strcache buffers: 1 (0) / strings = 69 / storage = 1634 B / avg = 23 B
+# current buf: size = 8162 B / used = 1634 B / count = 69 / avg = 23 B
 
-# strcache performance: lookups = 162 / hit rate = 31%
+# strcache performance: lookups = 103 / hit rate = 33%
 # hash-table stats:
-# Load=111/8192=1%, Rehash=0, Collisions=0/162=0%
-# Finished Make data base on Thu Aug 18 22:07:57 2022
+# Load=69/8192=1%, Rehash=0, Collisions=0/103=0%
+# Finished Make data base on Fri Aug 19 00:25:23 2022
 
  

@@ -9,7 +9,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/pipex",
-			"args": ["here_doc", "EOF", "cat", "amdkmdka", "outfile"],
+			"args": ["infile", "grep pipex", "wc -lw", "outfile"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [],

@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:38:28 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/18 20:08:32 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/18 23:18:21 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	init_pipe_args(t_arguments *arguments)
 	arguments->output_file.file_name = NULL;
 	arguments->path = NULL;
 	arguments->output_file.fd = 0;
-	arguments->exit_code = 0;
 }
 
 void	init_args(t_arguments *arguments)

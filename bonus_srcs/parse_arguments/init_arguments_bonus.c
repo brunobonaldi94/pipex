@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 22:38:28 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/18 19:55:17 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/18 23:18:37 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	init_pipe_args(t_arguments *arguments)
 	arguments->output_file.file_name = NULL;
 	arguments->path = NULL;
 	arguments->output_file.fd = 0;
-	arguments->exit_code = 0;
 	arguments->index_commands_start = INDEX_COMMANDS_START;
 	arguments->commands_offset_number = COMMANDS_OFFSET;
 	arguments->here_doc.is_here_doc = FALSE;

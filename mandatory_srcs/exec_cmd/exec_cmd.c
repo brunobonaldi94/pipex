@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:35:22 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/13 18:20:00 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/18 23:11:18 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,22 +53,8 @@ void	exec_commands(t_arguments *arguments, int process_index)
 {
 	dup_stdin_out(arguments);
 	if (process_index == 0)
-	{
-		close_read_pipe(arguments);
-		arguments->input_file.fd = open_infile(arguments);
-		dup2(arguments->input_file.fd, STDIN_FILENO);
-		close_input(arguments);
-		dup2(arguments->fd_pipes[0].fd[WRITE_FD], STDOUT_FILENO);
-		close_write_pipe(arguments);
-	}
+		handle_fds_first_cmd(arguments);
 	else
-	{
-		close_write_pipe(arguments);
-		dup2(arguments->fd_pipes[0].fd[READ_FD], STDIN_FILENO);
-		close_read_pipe(arguments);
-		arguments->output_file.fd = open_output(arguments);
-		dup2(arguments->output_file.fd, STDOUT_FILENO);
-		close_output(arguments);
-	}
+		handle_fds_last_cmd(arguments);
 	exec_each_cmd(arguments, process_index);
 }

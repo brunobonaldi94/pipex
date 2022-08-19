@@ -8,7 +8,7 @@ FREE_ARGUMENTS_PATH = free_arguments
 SRCS = 	$(MANDATORY_PATH)/pipex.c \
 		$(addprefix $(MANDATORY_PATH)/$(PARSE_ARGS_PATH)/,parse_arguments.c parse_arguments_utils.c init_arguments.c tokenizer.c) \
 		$(addprefix $(MANDATORY_PATH)/$(ERRORS_HANDLERS_PATH)/, error_handlers_utils.c error_handlers_utils_II.c close_fds.c close_fds_II.c) \
-		$(addprefix $(MANDATORY_PATH)/$(EXEC_CMD_PATH)/, exec_cmd.c) \
+		$(addprefix $(MANDATORY_PATH)/$(EXEC_CMD_PATH)/, exec_cmd.c exec_cmd_utils.c) \
 		$(addprefix $(MANDATORY_PATH)/$(FILES_HANDLERS)/, files_handlers.c) \
 		$(addprefix $(MANDATORY_PATH)/$(FREE_ARGUMENTS_PATH)/, free_arguments.c)
 

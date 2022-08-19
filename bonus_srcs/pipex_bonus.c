@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 22:59:50 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/18 22:13:11 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/18 23:52:49 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,9 @@ int	get_exit_code(t_arguments *arguments)
 	i = 0;
 	while (i < arguments->number_commands)
 	{
-		waitpid(arguments->pids_fork, &arguments->exit_code, 0);
+		wait(&arguments->exit_code);
 		if (WIFEXITED(arguments->exit_code))
-		{
 			arguments->exit_code = WEXITSTATUS(arguments->exit_code);
-			return (arguments->exit_code);
-		}
 		i++;
 	}
 	return (arguments->exit_code);
