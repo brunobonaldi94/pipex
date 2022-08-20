@@ -9,6 +9,7 @@
 		"fstream": "c",
 		"atomic": "c",
 		"cerrno": "c",
-		"cstdlib": "c"
+		"cstdlib": "c",
+		"get_next_line.h": "c"
 	}
 }

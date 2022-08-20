@@ -5,7 +5,6 @@ ERRORS_HANDLERS_PATH = error_handlers
 EXEC_CMD_PATH = exec_cmd
 FILES_HANDLERS = files_handlers
 FREE_ARGUMENTS_PATH = free_arguments
- 
 
 define COMPILE_DONE
   _____ _____ _____  ________   __           _____   ____  _   _ ______ 
@@ -28,9 +27,9 @@ OBJS = $(SRCS:.c=.o)
 
 BONUS_PATH = ./bonus_srcs
 SRCS_BONUS = $(BONUS_PATH)/pipex_bonus.c \
-		$(addprefix $(BONUS_PATH)/$(PARSE_ARGS_PATH)/,parse_arguments_bonus.c parse_arguments_utils_bonus.c init_arguments_bonus.c tokenizer_bonus.c here_doc_bonus.c) \
+		$(addprefix $(BONUS_PATH)/$(PARSE_ARGS_PATH)/,parse_arguments_bonus.c parse_arguments_utils_bonus.c init_arguments_bonus.c tokenizer_bonus.c) \
 		$(addprefix $(BONUS_PATH)/$(ERRORS_HANDLERS_PATH)/, error_handlers_utils_bonus.c error_handlers_utils_II_bonus.c close_fds_bonus.c close_fds_II_bonus.c) \
-		$(addprefix $(BONUS_PATH)/$(EXEC_CMD_PATH)/, exec_cmd_bonus.c exec_cmd_utils_bonus.c) \
+		$(addprefix $(BONUS_PATH)/$(EXEC_CMD_PATH)/, exec_cmd_bonus.c exec_cmd_utils_bonus.c here_doc_bonus.c here_doc_utils_bonus.c) \
 		$(addprefix $(BONUS_PATH)/$(FILES_HANDLERS)/, files_handlers_bonus.c) \
 		$(addprefix $(BONUS_PATH)/$(FREE_ARGUMENTS_PATH)/, free_arguments_bonus.c)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)

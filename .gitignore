@@ -5,3 +5,4 @@ pipex
 *.o.temp*
 /testers
 outfile*
+/get_next_line

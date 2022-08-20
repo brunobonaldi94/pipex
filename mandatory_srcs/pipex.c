@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 22:59:50 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/20 11:18:45 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/20 16:28:55 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,7 @@ void	create_pipes(t_arguments *arguments)
 	while (pipe_index < arguments->number_commands - 1)
 	{
 		if (pipe(arguments->fd_pipes[pipe_index].fd) == ERROR_CODE_FUNCTION)
-		{
-			close_pipes(arguments);
 			print_arg_error_and_exit(arguments, PIPE_ARG, EXIT_FAILURE);
-		}
 		pipe_index++;
 	}
 }

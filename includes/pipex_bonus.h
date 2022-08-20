@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/18 21:16:36 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:28:00 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,8 @@ char	**tokenizer(t_arguments *arguments, int argv_index);
 int		check_here_doc_argument(t_arguments *arguments);
 void	parse_here_doc(t_arguments *arguments, int fd_here_doc);
 void	pipe_here_doc(t_arguments *arguments, int process_index);
+int		here_doc_line_substring_handler(t_arguments *arguments,
+			char **line_acc, char **line);
 //ERROR_HANDLER_FUNCTIONS
 void	exit_with_message(int status_code, char *message);
 void	print_arg_error_and_exit(t_arguments *arguments, char *arg,
