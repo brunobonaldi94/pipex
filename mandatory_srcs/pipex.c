@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 22:59:50 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/19 00:21:36 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/20 11:18:45 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ void	fork_childs(t_arguments *arguments)
 	int	i;
 
 	i = 0;
-	arguments->pids_fork = (pid_t *)malloc(sizeof(pid_t) 
+	arguments->pids_fork = (pid_t *)malloc(sizeof(pid_t)
+			* arguments->number_commands);
+	ft_memset(arguments->pids_fork, 1, sizeof(pid_t)
 		* arguments->number_commands);
 	while (i < arguments->number_commands)
 	{

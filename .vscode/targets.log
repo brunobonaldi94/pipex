@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug 19 00:25:23 2022
+# Make data base, printed on Sat Aug 20 11:03:12 2022
 
 # Variables
 
@@ -15,11 +15,11 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # environment
+NO_AT_BRIDGE = 1
+# environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
 SSH_AGENT_LAUNCHER = gnome-keyring
-# environment
-GJS_DEBUG_OUTPUT = stderr
 # makefile (from 'Makefile', line 1)
 MANDATORY_PATH = ./mandatory_srcs
 # environment
@@ -27,7 +27,7 @@ LC_NAME = pt_BR.UTF-8
 # environment
 LC_NUMERIC = pt_BR.UTF-8
 # environment
-VSCODE_CWD = /home/brunobonaldi
+VSCODE_CWD = /home/brunobonaldi/Desktop/pipex_b/pipexp
 # environment
 WINDOWPATH = 2
 # environment
@@ -35,7 +35,11 @@ LC_ADDRESS = pt_BR.UTF-8
 # default
 MAKE_COMMAND := make
 # environment
+VSCODE_INJECTION = 1
+# environment
 QT_ACCESSIBILITY = 1
+# environment
+VSCODE_GIT_ASKPASS_EXTRA_ARGS = --ms-enable-electron-run-as-node
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -43,7 +47,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/brunobonaldi/Desktop/pipexp
+PWD = /home/brunobonaldi/Desktop/pipex_b/pipexp
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # makefile (from 'Makefile', line 31)
@@ -55,7 +59,7 @@ XDG_DATA_DIRS = /usr/share/ubuntu:/usr/share/gnome:/home/brunobonaldi/.local/sha
 # makefile (from 'Makefile', line 3)
 ERRORS_HANDLERS_PATH = error_handlers
 # environment
-OLDPWD = /home/brunobonaldi
+OLDPWD = /home/brunobonaldi/Desktop/pipex_b/pipexp
 # makefile (from 'Makefile', line 27)
 NAME_BONUS = pipex_bonus
 # automatic
@@ -76,12 +80,16 @@ XAUTHORITY = /run/user/1001/gdm/Xauthority
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+GNOME_TERMINAL_SERVICE = :1.104
 # makefile
 MAKEFLAGS = pqrR
-# makefile
-CURDIR := /home/brunobonaldi/Desktop/pipexp
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1001/bus,guid=8b337e457eeb13e322056c5c6300dcd6
+# makefile
+CURDIR := /home/brunobonaldi/Desktop/pipex_b/pipexp
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # makefile (from 'Makefile', line 8)
 SRCS = $(MANDATORY_PATH)/pipex.c $(addprefix $(MANDATORY_PATH)/$(PARSE_ARGS_PATH)/,parse_arguments.c parse_arguments_utils.c init_arguments.c tokenizer.c) $(addprefix $(MANDATORY_PATH)/$(ERRORS_HANDLERS_PATH)/, error_handlers_utils.c error_handlers_utils_II.c close_fds.c close_fds_II.c) $(addprefix $(MANDATORY_PATH)/$(EXEC_CMD_PATH)/, exec_cmd.c exec_cmd_utils.c) $(addprefix $(MANDATORY_PATH)/$(FILES_HANDLERS)/, files_handlers.c) $(addprefix $(MANDATORY_PATH)/$(FREE_ARGUMENTS_PATH)/, free_arguments.c)
 # automatic
@@ -99,6 +107,10 @@ XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
+GIT_ASKPASS = /usr/share/code/resources/app/extensions/git/dist/askpass.sh
+# environment
+ZDOTDIR = /home/brunobonaldi
+# environment
 XDG_SESSION_DESKTOP = ubuntu
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST := Makefile
@@ -107,7 +119,7 @@ MAKEFILE_LIST := Makefile
 # environment
 ZSH = /home/brunobonaldi/.oh-my-zsh
 # environment
-VSCODE_PID = 148498
+VSCODE_PID = 19038
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -115,7 +127,7 @@ XDG_SESSION_TYPE = x11
 # makefile (from 'Makefile', line 33)
 INCLUDES = -I$(SRCS_LIBFT_PATH)includes -I$(SRCS_LIBFT_PATH) -I./includes
 # environment
-SESSION_MANAGER = local/brunobonaldi:@/tmp/.ICE-unix/3849,unix/brunobonaldi:/tmp/.ICE-unix/3849
+SESSION_MANAGER = local/brunobonaldi:@/tmp/.ICE-unix/3299,unix/brunobonaldi:/tmp/.ICE-unix/3299
 # automatic
 *F = $(notdir $*)
 # makefile (from 'Makefile', line 29)
@@ -123,7 +135,7 @@ SRCS_LIBFT_PATH = ./libs/libft/
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1001/bus
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1001/bus,guid=8b337e457eeb13e322056c5c6300dcd6
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
@@ -141,9 +153,9 @@ MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
 # environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+SHLVL = 3
 # environment
-SHLVL = 0
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/bcb86923_bd88_46a7_b4b3_f9ec80419aa1
 # environment
 MAKELEVEL := 0
 # default
@@ -155,7 +167,11 @@ SPACESHIP_ROOT = /home/brunobonaldi/.oh-my-zsh/custom/themes/spaceship-prompt
 # default
 MAKEFILES := 
 # environment
+VSCODE_GIT_IPC_HANDLE = /run/user/1001/vscode-git-8211438fb7.sock
+# environment
 LANGUAGE = en_US:
+# environment
+VSCODE_GIT_ASKPASS_NODE = /usr/share/code/code
 # environment
 LC_MONETARY = pt_BR.UTF-8
 # automatic
@@ -165,9 +181,11 @@ SRCS_BONUS = $(BONUS_PATH)/pipex_bonus.c $(addprefix $(BONUS_PATH)/$(PARSE_ARGS_
 # environment
 LC_TIME = pt_BR.UTF-8
 # environment
-INVOCATION_ID = 71399e8154004bc7af9328f3aa32273b
+VSCODE_GIT_ASKPASS_MAIN = /usr/share/code/resources/app/extensions/git/dist/askpass-main.js
 # environment
 USERNAME = brunobonaldi
+# environment
+TERM_PROGRAM = vscode
 # makefile (from 'Makefile', line 6)
 FREE_ARGUMENTS_PATH = free_arguments
 # environment
@@ -179,7 +197,7 @@ NAME = pipex
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # environment
-LS_COLORS = 
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # automatic
 +F = $(notdir $+)
 # environment
@@ -187,19 +205,17 @@ LESS = -R
 # environment
 DESKTOP_SESSION = ubuntu
 # environment
-ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+ORIGINAL_XDG_CURRENT_DESKTOP = Unity
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
 LOGNAME = brunobonaldi
-# environment
-GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # makefile (from 'Makefile', line 5)
 FILES_HANDLERS = files_handlers
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 3868
+SYSTEMD_EXEC_PID = 3299
 # makefile (from 'Makefile', line 37)
 RM = rm -rf
 # environment
@@ -211,17 +227,15 @@ GTK_MODULES = gail:atk-bridge
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 3574
+DBUS_STARTER_BUS_TYPE = session
 # environment
 DESKTOP_MODE = 1
 # environment
 LC_MEASUREMENT = pt_BR.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 148498
-# environment
 PAGER = less
 # environment
-_ = /usr/share/code/code
+_ = /usr/bin/code
 # environment
 LC_PAPER = pt_BR.UTF-8
 # environment
@@ -231,9 +245,9 @@ CFLAGS = -Wall -Wextra -Werror -g
 # environment
 GPG_AGENT_INFO = /run/user/1001/gnupg/S.gpg-agent:0:1
 # environment
-LC_CTYPE = pt_BR.UTF-8
+COLORTERM = truecolor
 # environment
-JOURNAL_STREAM = 8:42409
+LC_CTYPE = pt_BR.UTF-8
 # makefile (from 'Makefile', line 4)
 EXEC_CMD_PATH = exec_cmd
 # environment
@@ -251,6 +265,8 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 VSCODE_IPC_HOOK = /run/user/1001/vscode-235d5238-1.70.1-main.sock
 # environment
+TERM = xterm-256color
+# environment
 IM_CONFIG_PHASE = 1
 # default
 .RECIPEPREFIX := 
@@ -258,32 +274,39 @@ IM_CONFIG_PHASE = 1
 <F = $(notdir $<)
 # default
 SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VTE_VERSION = 6800
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # makefile (from 'Makefile', line 35)
+ 
 CC = gcc
 # makefile (from 'Makefile', line 24)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
+TERM_PROGRAM_VERSION = 1.70.1
+# environment
 GDMSESSION = ubuntu
 # environment
 LC_IDENTIFICATION = pt_BR.UTF-8
 # variable set hash-table stats:
-# Load=130/1024=13%, Rehash=0, Collisions=13/213=6%
+# Load=142/1024=14%, Rehash=0, Collisions=25/224=11%
 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
 
 # Directories
- 
 
-# . (device 66307, inode 3288579): 21 files, no impossibilities.
-# mandatory_srcs (device 66307, inode 3288779): 8 files, no impossibilities so far.
+# . (device 66307, inode 3164931): 15 files, no impossibilities.
 
-# 29 files, no impossibilities in 2 directories.
+# 15 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -333,7 +356,7 @@ bonus_srcs/free_arguments/free_arguments_bonus.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-18 23:11:17.182133154
+#  Last modified 2022-08-20 11:02:43.440689855
 #  File has been updated.
 #  Successfully updated.
 
@@ -343,40 +366,16 @@ bonus_srcs/error_handlers/error_handlers_utils_bonus.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-mandatory_srcs/pipex.o: mandatory_srcs/pipex.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mandatory_srcs/pipex'
-#  Last modified 2022-08-19 00:20:58.522380131
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := mandatory_srcs/pipex.o
-# automatic
-# * := mandatory_srcs/pipex
-# automatic
-# < := mandatory_srcs/pipex.c
-# automatic
-# + := mandatory_srcs/pipex.c
-# automatic
-# % := 
-# automatic
-# ^ := mandatory_srcs/pipex.c
-# automatic
-# ? := mandatory_srcs/pipex.c
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=2/18=11%
-#  recipe to execute (from 'Makefile', line 40):
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+# Not a target:
+mandatory_srcs/pipex.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 pipex: mandatory_srcs/pipex.o mandatory_srcs/parse_arguments/parse_arguments.o mandatory_srcs/parse_arguments/parse_arguments_utils.o mandatory_srcs/parse_arguments/init_arguments.o mandatory_srcs/parse_arguments/tokenizer.o mandatory_srcs/error_handlers/error_handlers_utils.o mandatory_srcs/error_handlers/error_handlers_utils_II.o mandatory_srcs/error_handlers/close_fds.o mandatory_srcs/error_handlers/close_fds_II.o mandatory_srcs/exec_cmd/exec_cmd.o mandatory_srcs/exec_cmd/exec_cmd_utils.o mandatory_srcs/files_handlers/files_handlers.o mandatory_srcs/free_arguments/free_arguments.o libs/libft/libft.a
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-19 00:21:48.602383089
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/8=0%
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 53):
 	@tput setaf 2
 	@echo COMPILING PIPEX
@@ -441,13 +440,6 @@ re: fclean all
 #  File has not been updated.
 
 # Not a target:
-mandatory_srcs/pipex.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-19 00:21:36.670382384
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
 mandatory_srcs/parse_arguments/parse_arguments.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -455,9 +447,28 @@ mandatory_srcs/parse_arguments/parse_arguments.o:
 
 libs/libft/libft.a:
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-18 23:58:52.662301817
+#  Implicit/static pattern stem: ''
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := libs/libft/libft.a
+# automatic
+# * := 
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
 #  recipe to execute (from 'Makefile', line 47):
 	@tput setaf 4
 	@echo COMPILING LIBFT
@@ -496,7 +507,7 @@ all: libs/libft/libft.a pipex
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/8=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -558,11 +569,18 @@ pipex_bonus: bonus_srcs/pipex_bonus.o bonus_srcs/parse_arguments/parse_arguments
 # Not a target:
 bonus_srcs/parse_arguments/tokenizer_bonus.o:
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
 bonus_srcs/exec_cmd/exec_cmd_bonus.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -577,22 +595,21 @@ bonus_srcs/error_handlers/close_fds_II_bonus.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 
 # files hash-table stats:
-# Load=40/1024=4%, Rehash=0, Collisions=1/98=1%
+# Load=39/1024=4%, Rehash=0, Collisions=1/95=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 69 / storage = 1634 B / avg = 23 B
-# current buf: size = 8162 B / used = 1634 B / count = 69 / avg = 23 B
+# strcache buffers: 1 (0) / strings = 56 / storage = 1472 B / avg = 26 B
+# current buf: size = 8162 B / used = 1472 B / count = 56 / avg = 26 B
 
-# strcache performance: lookups = 103 / hit rate = 33%
+# strcache performance: lookups = 86 / hit rate = 34%
 # hash-table stats:
-# Load=69/8192=1%, Rehash=0, Collisions=0/103=0%
-# Finished Make data base on Fri Aug 19 00:25:23 2022
+# Load=56/8192=1%, Rehash=0, Collisions=0/86=0%
+# Finished Make data base on Sat Aug 20 11:03:12 2022
 
  
