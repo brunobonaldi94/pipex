@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 23:53:42 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/18 20:39:38 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/20 13:13:56 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ void	parse_path(t_arguments *arguments)
 
 int	parse_args(t_arguments *arguments)
 {
-	if (arguments->argc <= MINIMUM_NUMBER_ARGS)
-		exit_with_message(ERROR_CODE, TOO_FEW_ARGUMENTS_ERROR_MSG);
+	if (arguments->argc != MANDATORY_NUMBER_ARGS)
+		exit_with_message(ERROR_CODE, WRONG_NUMBER_ARGUMENTS_ERROR_MSG);
 	arguments->input_file.file_name = arguments->argv[1];
 	arguments->output_file.file_name = arguments->argv[arguments->argc - 1];
 	parse_path(arguments);

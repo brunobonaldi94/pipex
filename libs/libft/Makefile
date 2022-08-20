@@ -87,34 +87,33 @@ AR = ar rc
 RANLIB = ranlib
 RM = rm -rf
 
-
 %.o:	%.c
-	$(CC) $(CFLAGS) -c -I$(INCLUDES) $< -o $(<:%.c=%.o)
+	@$(CC) $(CFLAGS) -c -I$(INCLUDES) $< -o $(<:%.c=%.o)
 
 $(PRINTF_PATH)/%.o:	$(PRINTF_PATH)/%.c
-	$(CC) $(CFLAGS) -c -I$(INCLUDES) -I$(INCLUDES_PRINTF_GNL) $< -o $(<:%.c=%.o)
+	@$(CC) $(CFLAGS) -c -I$(INCLUDES) -I$(INCLUDES_PRINTF_GNL) $< -o $(<:%.c=%.o)
 
 $(GNL_PATH)/%.o:	$(GNL_PATH)/%.c
-	$(CC) $(CFLAGS) -c -I$(INCLUDES) -I$(INCLUDES_PRINTF_GNL) $< -o $(<:%.c=%.o)
+	@$(CC) $(CFLAGS) -c -I$(INCLUDES) -I$(INCLUDES_PRINTF_GNL) $< -o $(<:%.c=%.o)
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS) $(OBJS_PRINTF) $(OBJS_GNL)
-	$(AR) $(NAME) $(OBJS) $(OBJS_PRINTF) $(OBJS_GNL)
-	$(RANLIB) $(NAME)
+	@$(AR) $(NAME) $(OBJS) $(OBJS_PRINTF) $(OBJS_GNL)
+	@$(RANLIB) $(NAME)
 
 $(NAME_BONUS):	$(OBJS_BONUS) $(OBJS) $(OBJS_PRINTF) $(OBJS_GNL)
-	$(AR) $(NAME_BONUS) $(OBJS_BONUS) $(OBJS) $(OBJS_PRINTF) $(OBJS_GNL)
-	$(RANLIB) $(NAME_BONUS)
-	\cp -r $(NAME_BONUS) $(NAME)
+	@$(AR) $(NAME_BONUS) $(OBJS_BONUS) $(OBJS) $(OBJS_PRINTF) $(OBJS_GNL)
+	@$(RANLIB) $(NAME_BONUS)
+	@\cp -r $(NAME_BONUS) $(NAME)
 
 bonus: $(NAME_BONUS)
 
 clean:
-	$(RM) $(OBJS) $(OBJS_BONUS) $(OBJS_PRINTF) $(OBJS_GNL)
+	@$(RM) $(OBJS) $(OBJS_BONUS) $(OBJS_PRINTF) $(OBJS_GNL)
 
 fclean:	clean
-	$(RM) $(NAME) $(NAME_BONUS)
+	@$(RM) $(NAME) $(NAME_BONUS)
 
 re:	fclean all
 

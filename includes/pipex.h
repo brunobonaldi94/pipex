@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:07:26 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/18 23:11:18 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/20 13:12:55 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 
 # define INDEX_COMMANDS_START 2
 # define COMMANDS_OFFSET 3
-# define MINIMUM_NUMBER_ARGS 4
+# define MANDATORY_NUMBER_ARGS 5
 
 # define PATH "PATH="
 # define DEFAULT_PERMISSION 0000664
@@ -60,8 +60,8 @@
 # define SENTINEL_CHAR -28
 
 # define PIPEX_NAME "pipex: "
-# define TOO_FEW_ARGUMENTS_ERROR_MSG "Pipex must be run with at least \
-'file1' 'cmd1' 'cmd2' 'file2' arguments"
+# define WRONG_NUMBER_ARGUMENTS_ERROR_MSG "Pipex mandatory must be run with 4 \
+arguments 'file1' 'cmd1' 'cmd2' 'file2'"
 # define TOO_MANY_ARGUMENTS_ERROR_MSG "Pipex must be run only with 4 args \
 'file1' 'cmd1' 'cmd2' 'file2' arguments"
 # define COMMAND_NOT_FOUND_ERROR_CODE 127

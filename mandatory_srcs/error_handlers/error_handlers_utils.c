@@ -6,7 +6,7 @@
 /*   By: bbonaldi <bbonaldi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 00:00:43 by bbonaldi          #+#    #+#             */
-/*   Updated: 2022/08/17 23:06:20 by bbonaldi         ###   ########.fr       */
+/*   Updated: 2022/08/20 13:13:12 by bbonaldi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,15 @@ void	exit_with_message(int status_code, char *message)
 void	print_custom_arg_error_and_exit(t_arguments *arguments, char *arg,
 				int status_code, char *message)
 {
-	ft_printf("%s: %s: ", arguments->argv[0], arg);
+	int	fd_std_out;
+
+	fd_std_out = dup(STDOUT_FILENO);
+	dup2(STDERR_FILENO, STDOUT_FILENO);
+	ft_printf("%s: %s: %s\n", arguments->argv[0], arg, message);
+	dup2(fd_std_out, STDOUT_FILENO);
+	close(fd_std_out);
 	free_pipex(arguments);
-	exit_with_message(status_code, message);
+	exit(status_code);
 }
 
 void	perror_with_color(t_arguments *arguments, char *arg)

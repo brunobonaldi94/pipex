@@ -1,7 +1,0 @@
-drwxrwxr-x 4 brunobonaldi brunobonaldi  4096 ago 10 22:25 .
-drwxrwxr-x 9 brunobonaldi brunobonaldi  4096 ago 10 22:24 ..
-drwxrwxr-x 8 brunobonaldi brunobonaldi  4096 ago 10 22:25 .git
--rwxrwxrwx 1 brunobonaldi brunobonaldi     0 ago 10 22:25 infile
-drwxrwxr-x 2 brunobonaldi brunobonaldi  4096 ago 10 22:25 output
--rwxrwxr-x 1 brunobonaldi brunobonaldi 53712 ago 10 22:25 pipex
--rwxrwxr-x 1 brunobonaldi brunobonaldi 18826 ago 10 22:00 test.sh

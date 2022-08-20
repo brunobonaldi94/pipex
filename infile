@@ -1,12 +1,15 @@
-total 108
-drwxrwxr-x 4 brunobonaldi brunobonaldi  4096 ago 10 22:25 .
-drwxrwxr-x 9 brunobonaldi brunobonaldi  4096 ago 10 22:24 ..
--rw-rw-r-- 1 brunobonaldi brunobonaldi   108 ago 10 22:00 fn_allowed
--rw-rw-r-- 1 brunobonaldi brunobonaldi    12 ago 10 22:10 fn_used
-drwxrwxr-x 8 brunobonaldi brunobonaldi  4096 ago 10 22:25 .git
--rwxrwxrwx 1 brunobonaldi brunobonaldi     0 ago 10 22:25 infile
--rw-rw-r-- 1 brunobonaldi brunobonaldi   160 ago 10 22:00 Makefile
-drwxrwxr-x 2 brunobonaldi brunobonaldi  4096 ago 10 22:25 output
--rwxrwxr-x 1 brunobonaldi brunobonaldi 53712 ago 10 22:25 pipex
--rw-rw-r-- 1 brunobonaldi brunobonaldi   176 ago 10 22:00 README.md
--rwxrwxr-x 1 brunobonaldi brunobonaldi 18826 ago 10 22:00 test.sh
+total 52
+drwxrwxr-x 10 brunobonaldi brunobonaldi 4096 ago 20 14:29 .
+drwxrwxr-x  3 brunobonaldi brunobonaldi 4096 ago 20 11:02 ..
+drwxrwxr-x  7 brunobonaldi brunobonaldi 4096 ago 20 13:54 bonus_srcs
+drwxrwxr-x  8 brunobonaldi brunobonaldi 4096 ago 20 14:32 .git
+-rw-rw-r--  1 brunobonaldi brunobonaldi   48 ago 20 11:02 .gitignore
+drwxrwxr-x  2 brunobonaldi brunobonaldi 4096 ago 20 11:02 includes
+-rwxrwxr-x  1 brunobonaldi brunobonaldi    0 ago 20 14:33 infile
+drwxrwxr-x  3 brunobonaldi brunobonaldi 4096 ago 20 11:02 libs
+-rw-rw-r--  1 brunobonaldi brunobonaldi 2659 ago 20 14:32 Makefile
+drwxrwxr-x  7 brunobonaldi brunobonaldi 4096 ago 20 14:29 mandatory_srcs
+-rw-rw-r--  1 brunobonaldi brunobonaldi   16 ago 20 11:02 output
+drwxrwxr-x  2 brunobonaldi brunobonaldi 4096 ago 20 11:02 test
+drwxrwxr-x  6 brunobonaldi brunobonaldi 4096 ago 20 14:09 testers
+drwxrwxr-x  2 brunobonaldi brunobonaldi 4096 ago 20 11:02 .vscode

@@ -1,9 +1,21 @@
+MAKE_C = make --no-print-directory
 MANDATORY_PATH = ./mandatory_srcs
 PARSE_ARGS_PATH = parse_arguments
 ERRORS_HANDLERS_PATH = error_handlers
 EXEC_CMD_PATH = exec_cmd
 FILES_HANDLERS = files_handlers
 FREE_ARGUMENTS_PATH = free_arguments
+ 
+
+define COMPILE_DONE
+  _____ _____ _____  ________   __           _____   ____  _   _ ______ 
+ |  __ \_   _|  __ \|  ____\ \ / /          |  __ \ / __ \| \ | |  ____|
+ | |__) || | | |__) | |__   \ V /   ______  | |  | | |  | |  \| | |__   
+ |  ___/ | | |  ___/|  __|   > <   |______| | |  | | |  | | . ` |  __|  
+ | |    _| |_| |    | |____ / . \           | |__| | |__| | |\  | |____ 
+ |_|   |_____|_|    |______/_/ \_\          |_____/ \____/|_| \_|______|
+endef
+export COMPILE_DONE
 
 SRCS = 	$(MANDATORY_PATH)/pipex.c \
 		$(addprefix $(MANDATORY_PATH)/$(PARSE_ARGS_PATH)/,parse_arguments.c parse_arguments_utils.c init_arguments.c tokenizer.c) \
@@ -37,7 +49,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -rf
 
 %.o:	%.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 all:	$(LIBFT_FULL_PATH) $(NAME)
 
@@ -46,29 +58,41 @@ bonus: $(LIBFT_FULL_PATH) $(NAME_BONUS)
 $(LIBFT_FULL_PATH):
 	@tput setaf 4
 	@echo COMPILING LIBFT
-	make bonus -C $(SRCS_LIBFT_PATH)
-	cp $(LIBFT_FULL_PATH) ./
+	@$(MAKE_C) bonus -C $(SRCS_LIBFT_PATH)
+	@cp $(LIBFT_FULL_PATH) ./
 
 $(NAME):	$(OBJS) $(LIBFT_FULL_PATH)
-	@tput setaf 2
+	@tput setaf 3
 	@echo COMPILING PIPEX
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	@tput setaf 2
+	@echo "$$COMPILE_DONE"
 	@tput setaf 7
 
 $(NAME_BONUS):	$(OBJS_BONUS) $(LIBFT_FULL_PATH)
-	@tput setaf 2
-	@echo COMPILING PIPEX
-	$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) -o $(NAME_BONUS)
+	@tput setaf 3
+	@echo COMPILING PIPEX BONUS
+	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) -o $(NAME_BONUS)
 	@\cp -r $(NAME_BONUS) $(NAME)
+	@tput setaf 2
+	@echo "$$COMPILE_DONE"
 	@tput setaf 7
 	
 clean:
-	make clean -C $(SRCS_LIBFT_PATH)
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	@tput setaf 2
+	@echo $@ libft
+	@$(MAKE_C) clean -C $(SRCS_LIBFT_PATH)
+	@tput setaf 4
+	@echo clean pipex
+	@$(RM) $(OBJS) $(OBJS_BONUS)
+	@tput setaf 7
 
 fclean:	clean
-	make fclean -C $(SRCS_LIBFT_PATH)
-	$(RM) $(NAME) $(NAME_BONUS) $(LIBFT)
+	@tput setaf 3
+	@echo $@
+	@$(MAKE_C) fclean -C $(SRCS_LIBFT_PATH)
+	@$(RM) $(NAME) $(NAME_BONUS) $(LIBFT)
+	@tput setaf 7
 
 re:	fclean all
 
